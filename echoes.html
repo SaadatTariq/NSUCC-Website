@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echoes | NSU Communications Club</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+
+  <style>
+    .construction-section {
+      padding: 120px 0;
+      background-color: var(--background-color);
+      text-align: center;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .construction-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .construction-icon {
+      font-size: 4rem;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .construction-title {
+      font-size: 2.5rem;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .construction-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted-color);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .construction-message {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      margin-bottom: 30px;
+    }
+
+    .construction-message p {
+      color: var(--text-muted-color);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .coming-soon {
+      background: linear-gradient(135deg, var(--primary-color), #b91c1c);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 20px 0;
+      display: inline-block;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 30px;
+      padding: 12px 24px;
+      border: 2px solid var(--primary-color);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_white.png" alt="NSUCC Logo" />
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Team</a>
+            <div class="dropdown-content">
+              <a href="executives.html">Executive Body</a>
+              <a href="subexecutives.html">Sub-Executive Body</a>
+              <a href="facultyadvisor.html">Faculty Advisor</a>
+            </div>
+          </li>
+          <li><a href="events.html">Events</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="active">Publications</a>
+            <div class="dropdown-content">
+              <a href="english-matters.html">English Matters</a>
+              <a href="echoes.html">Echoes</a>
+            </div>
+          </li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="recruitment.html">Join Us</a></li>
+        </ul>
+      </nav>
+      <button
+        class="mobile-nav-toggle"
+        id="mobile-nav-toggle"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title" data-aos="fade-down">
+          Echoes
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up">
+          NSUCC's Creative Expression Magazine
+        </p>
+      </div>
+    </section>
+
+    <section class="construction-section">
+      <div class="construction-container">
+        <div class="construction-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        
+        <h2 class="construction-title">Under Construction</h2>
+        
+        <p class="construction-subtitle">
+          We're crafting something beautiful for you!
+        </p>
+
+        <div class="construction-message">
+          <p>
+            <strong>Echoes</strong> is an upcoming creative expression magazine by the NSU Communications Club. This digital publication will showcase the diverse voices, stories, and artistic expressions of our vibrant university community.
+          </p>
+          <p>
+            Echoes will feature creative writing, poetry, photography, student interviews, opinion pieces, and reflections on campus life. It will serve as a platform for students to share their perspectives, experiences, and creative talents with the wider NSU community.
+          </p>
+          
+          <div class="coming-soon">Coming Soon</div>
+          
+          <p>
+            We're currently assembling our editorial team and developing submission guidelines. Stay connected with us to be among the first to contribute to and read our inaugural issue.
+          </p>
+        </div>
+
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          Back to Home
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img
+            src="assets/images/logo_white.png"
+            alt="NSUCC Footer Logo"
+            class="footer-logo"
+          />
+          <p>
+            NSU Communications Club<br />Room #NAC121, North South
+            University<br />nsucommunicationsclub@gmail.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/NSUCommunicationsClub"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/nsucommunicationsclub/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://linkedin.com/company/nsucc"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

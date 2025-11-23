@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Partners | NSU Communications Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <style>
+    /* Partners Page Specific Styles */
+    .partners-section {
+      padding: 80px 0;
+      background-color: var(--surface-color);
+    }
+
+    .partners-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted-color);
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .partner-card {
+      background: var(--background-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--box-shadow);
+      border-color: var(--primary-color);
+    }
+
+    .partner-logo {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      width: 100%;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .partner-card:hover .partner-logo {
+      transform: scale(1.05);
+    }
+
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .partner-card:hover .partner-logo img {
+      filter: grayscale(0%);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 60px 40px;
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      padding: 30px 20px;
+      background: rgba(220, 20, 60, 0.05);
+      border: 1px solid rgba(220, 20, 60, 0.2);
+      border-radius: var(--border-radius);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      background: rgba(220, 20, 60, 0.1);
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--text-muted-color);
+      font-weight: 500;
+    }
+
+    /* Partnership Benefits */
+    .benefits-section {
+      margin: 60px 0;
+      background-color: var(--background-color);
+      padding: 80px 0;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .benefit-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: var(--box-shadow);
+    }
+
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .benefit-card h4 {
+      font-size: 1.3rem;
+      color: var(--text-color);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .benefit-card p {
+      color: var(--text-muted-color);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: rgba(220, 20, 60, 0.1);
+      border: 1px solid rgba(220, 20, 60, 0.2);
+      border-radius: var(--border-radius);
+      padding: 60px 40px;
+      text-align: center;
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      color: var(--text-color);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .cta-text {
+      font-size: 1.1rem;
+      color: var(--text-muted-color);
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
+      color: white;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--box-shadow);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 35px 60px -12px rgba(220, 20, 60, 0.4);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .partners-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-section,
+      .cta-section {
+        padding: 40px 20px;
+        margin: 40px 0;
+      }
+
+      .benefits-section {
+        padding: 60px 0;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      .cta-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_white.png" alt="NSUCC Logo">
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Team</a>
+            <div class="dropdown-content">
+              <a href="executives.html">Executive Body</a>
+              <a href="subexecutives.html">Sub-Executive Body</a>
+              <a href="facultyadvisor.html">Faculty Advisor</a>
+            </div>
+          </li>
+          <li><a href="events.html">Events</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Publications</a>
+            <div class="dropdown-content">
+              <a href="english-matters.html">English Matters</a>
+              <a href="echoes.html">Echoes</a>
+            </div>
+          </li>
+          <li><a href="partners.html" class="active">Partners</a></li>
+          <li><a href="recruitment.html">Join Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Our Partners</h1>
+      <p class="hero-subtitle">We proudly acknowledge the valued partnerships that have supported our mission of excellence in communication and student leadership. Together, we create opportunities that empower the next generation of leaders.</p>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="partners-section">
+    <div class="partners-container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title">Trusted Partners</h2>
+        <p class="section-subtitle">Organizations that believe in our vision and support our journey toward excellence</p>
+      </div>
+
+      <div class="partners-grid">
+        <!-- Tier 1 - Major Partners -->
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Pubali.png" alt="Pubali Bank">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="75">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Augmedix.png" alt="Augmedix">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="partner-logo">
+            <img src="assets/images/partners/UNDP.png" alt="UNDP">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="125">
+          <div class="partner-logo">
+            <img src="assets/images/partners/uber.svg" alt="Uber">
+          </div>
+        </div>
+        
+        <!-- Tier 2 - Corporate Partners -->
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="partner-logo">
+            <img src="assets/images/partners/DB.png" alt="Dhaka Bank">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="175">
+          <div class="partner-logo">
+            <img src="assets/images/partners/TBS.png" alt="TBS">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="partner-logo">
+            <img src="assets/images/partners/GBL.jpg" alt="Global Brand Limited">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="225">
+          <div class="partner-logo">
+            <img src="assets/images/partners/ICCB.png" alt="ICCB">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="partner-logo">
+            <img src="assets/images/partners/DC.png" alt="DC">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="275">
+          <div class="partner-logo">
+            <img src="assets/images/partners/MME.png" alt="MME">
+          </div>
+        </div>
+        
+        <!-- Tier 3 - Media & Technology Partners -->
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Somoy.png" alt="Somoy TV">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="325">
+          <div class="partner-logo">
+            <img src="assets/images/partners/InstaCircle.png" alt="InstaCircle">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="partner-logo">
+            <img src="assets/images/partners/GO.jpg" alt="GO">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="375">
+          <div class="partner-logo">
+            <img src="assets/images/partners/VG.jpg" alt="ViewSonic">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="partner-logo">
+            <img src="assets/images/partners/BI.jpg" alt="BI">
+          </div>
+        </div>
+        
+        <!-- Tier 4 - Lifestyle & Consumer Brands -->
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="425">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Well.png" alt="WellFood">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="450">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Kang.png" alt="Kangaroo">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="475">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Savoy.png" alt="Savoy">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Head Gear.png" alt="Head Gear">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="525">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Adil's.png" alt="Adil's">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="550">
+          <div class="partner-logo">
+            <img src="assets/images/partners/Shumis.png" alt="Shumis">
+          </div>
+        </div>
+        
+        <!-- Tier 5 - Additional Partners -->
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="575">
+          <div class="partner-logo">
+            <img src="assets/images/partners/UCC.webp" alt="UCC">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="partner-logo">
+            <img src="assets/images/partners/wander.jpg" alt="Wander">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="625">
+          <div class="partner-logo">
+            <img src="assets/images/partners/SD.png" alt="SD">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="650">
+          <div class="partner-logo">
+            <img src="assets/images/partners/ggg.png" alt="GGG">
+          </div>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="675">
+          <div class="partner-logo">
+            <img src="assets/images/partners/WB.svg" alt="WB">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="stats-section" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="section-title">Partnership Impact</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Active Partners</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">75+</span>
+            <span class="stat-label">Collaborative Events</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2500+</span>
+            <span class="stat-label">Students Benefited</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">7+</span>
+            <span class="stat-label">Years of Partnership</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div class="benefits-section">
+        <div class="section-header" data-aos="fade-up">
+          <h2 class="section-title">Partnership Benefits</h2>
+          <p class="section-subtitle">What our partnerships bring to the NSUCC community</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="benefit-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h4>Professional Networking</h4>
+            <p>Direct access to industry professionals and career opportunities through our partner organizations.</p>
+          </div>
+          
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="benefit-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h4>Skill Development</h4>
+            <p>Workshops, training sessions, and mentorship programs designed to enhance professional skills.</p>
+          </div>
+          
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="benefit-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h4>Event Sponsorship</h4>
+            <p>Financial and logistical support for our events, enabling us to deliver exceptional experiences.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="cta-title">Interested in Partnership?</h3>
+        <p class="cta-text">Join our network of esteemed partners and help us shape the future of communication excellence at NSU.</p>
+        <a href="mailto:nsucommunicationsclub@gmail.com" class="cta-btn">
+          <span>Get in Touch</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="assets/images/logo_white.png" alt="NSUCC Footer Logo" class="footer-logo">
+          <p>NSU Communications Club<br>Room #NAC121, North South University<br>nsucommunicationsclub@gmail.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com/NSUCommunicationsClub" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/nsucommunicationsclub/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/company/nsucc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>

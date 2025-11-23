@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Executive Body | NSU Communications Club</title>
+
+    <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/38437f2655.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .executive-card {
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      .executive-card .photo {
+        width: 100%;
+        height: 550px; /* Standardized height for all photos */
+        overflow: hidden;
+      }
+      .executive-card .photo img {
+        width: 100%;
+        height: 150%;
+        object-fit: cover; /* Ensures aspect ratio is maintained without distortion */
+        object-position: top; /* Focuses on the top part of the image */
+      }
+      .executive-card .info {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+      .executive-card .info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        color: var(--text-color);
+      }
+      .executive-card .info .title {
+        font-size: 1rem;
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      .executive-card .info .description {
+        font-size: 0.9rem;
+        color: var(--text-muted-color);
+        line-height: 1.6;
+        margin-bottom: 15px;
+        flex-grow: 1; /* Allows this section to fill available space */
+        text-align: justify;
+      }
+      .executive-card .info .socials {
+        margin-top: auto; /* Pushes socials to the bottom */
+      }
+      .executive-card .socials a {
+        color: var(--text-muted-color);
+        margin-right: 15px;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+      }
+      .executive-card .socials a:hover {
+        color: var(--primary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="index.html" class="logo-link">
+          <img src="assets/images/logo_white.png" alt="NSUCC Logo" />
+        </a>
+        <nav>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="active">Team</a>
+              <div class="dropdown-content">
+                <a href="executives.html" class="active">Executive Body</a>
+                <a href="subexecutives.html">Sub-Executive Body</a>
+                <a href="facultyadvisor.html">Faculty Advisor</a>
+              </div>
+            </li>
+            <li><a href="events.html">Events</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0)">Publications</a>
+              <div class="dropdown-content">
+                <a href="english-matters.html">English Matters</a>
+                <a href="echoes.html">Echoes</a>
+              </div>
+            </li>
+            <li><a href="partners.html">Partners</a></li>
+            <li><a href="recruitment.html">Join Us</a></li>
+          </ul>
+        </nav>
+        <button
+          class="mobile-nav-toggle"
+          id="mobile-nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="container">
+          <h1 class="hero-title" data-aos="fade-down">
+            Executive Body (2024-2025)
+          </h1>
+          <p class="hero-subtitle" data-aos="fade-up">
+            The visionary leaders steering NSU Communications Club towards
+            excellence.
+          </p>
+        </div>
+      </section>
+
+      <section class="team-section">
+        <div class="container">
+          <div class="card-grid">
+            <div class="executive-card" data-aos="fade-up">
+              <div class="photo">
+                <img
+                  src="assets/images/executives/President.png"
+                  alt="Md Saadat Tariq"
+                />
+              </div>
+              <div class="info">
+                <h3>Md Saadat Tariq</h3>
+                <p class="title">President</p>
+                <p class="description">
+                  Md Saadat Tariq embodies structured leadership, quiet
+                  ambition, and a deep commitment to excellence. Since joining
+                  the North South University Communications Club (NSUCC) in
+                  2022, he has grown from an introverted newcomer into a
+                  versatile leader with hands-on experience in administration,
+                  sponsorship, marketing, graphics, logistics, and strategic
+                  coordination. His precision and reliability have consistently
+                  strengthened the club’s professional standards. <br />
+                  <br />As President for the 2024–2025 term, Saadat led NSUCC
+                  through a period of organisational refinement and impactful
+                  growth. He formalized internal structures, streamlined
+                  workflows, and established the club’s first Human Resources
+                  Department—initiatives that have reshaped the club’s culture
+                  toward long-term development and operational maturity. Under
+                  his leadership, NSUCC also secured major collaborations with
+                  UNDP and the World Bank, significantly enhancing the club’s
+                  visibility and credibility.<br />
+                  <br />Saadat’s presidency is defined by clarity, consistency,
+                  and a vision-oriented approach, leaving behind a foundation of
+                  efficiency, professionalism, and purpose for future leaders to
+                  build upon.
+                </p>
+                <div class="socials">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="executive-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="photo">
+                <img
+                  src="assets/images/executives/Vice-Precident.png"
+                  alt="Saiba Adnan"
+                />
+              </div>
+              <div class="info">
+                <h3>Saiba Adnan</h3>
+                <p class="title">Vice-President</p>
+                <p class="description">
+                  [Add a brief, professional description for Saiba Adnan here.
+                  Highlight their key strengths, contributions, and vision for
+                  their role.]
+                </p>
+                <div class="socials">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="executive-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="photo">
+                <img
+                  src="assets/images/executives/General Secretary.png"
+                  alt="Isnat Hossain Rijon"
+                />
+              </div>
+              <div class="info">
+                <h3>Isnat Hossain Rijon</h3>
+                <p class="title">General Secretary</p>
+                <p class="description">
+                  [Add a brief, professional description for General Secretary
+                  here. Highlight their key strengths, contributions, and vision
+                  for their role.]
+                </p>
+                <div class="socials">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="executive-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="photo">
+                <img
+                  src="assets/images/executives/Treasurer.png"
+                  alt="Annan Rahman Sahil"
+                />
+              </div>
+              <div class="info">
+                <h3>Annan Rahman Sahil</h3>
+                <p class="title">Treasurer</p>
+                <p class="description">
+                  [Add a brief, professional description for Annan Rahman Sahil
+                  here. Highlight their key strengths, contributions, and vision
+                  for their role.]
+                </p>
+                <div class="socials">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="executive-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="photo">
+                <img
+                  src="assets/images/executives/JS_Int.png"
+                  alt="Armeen Hossain"
+                />
+              </div>
+              <div class="info">
+                <h3>Armeen Hossain</h3>
+                <p class="title">Joint Secretary (Internal Affaris)</p>
+                <p class="description">
+                  [Add a brief, professional description for Saiba Adnan here.
+                  Highlight their key strengths, contributions, and vision for
+                  their role.]
+                </p>
+                <div class="socials">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="executive-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="photo">
+                <img src="assets/images/executives/JS_Ext.png" alt="Atin" />
+              </div>
+              <div class="info">
+                <h3>Atin Annan Al Haque</h3>
+                <p class="title">Joint Secretary (External Affairs)</p>
+                <p class="description">
+                  [Add a brief, professional description for Saiba Adnan here.
+                  Highlight their key strengths, contributions, and vision for
+                  their role.]
+                </p>
+                <div class="socials">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <img
+              src="assets/images/logo_white.png"
+              alt="NSUCC Footer Logo"
+              class="footer-logo"
+            />
+            <p>
+              NSU Communications Club<br />Room #NAC121, North South
+              University<br />nsucommunicationsclub@gmail.com
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="index.html#gallery">Gallery</a></li>
+              <li><a href="partners.html">Our Partners</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/NSUCommunicationsClub"
+                target="_blank"
+                aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nsucommunicationsclub/"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://linkedin.com/company/nsucc"
+                target="_blank"
+                aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

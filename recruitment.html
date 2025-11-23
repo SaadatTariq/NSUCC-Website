@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recruitment | NSU Communications Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Hero Section */
+    .recruitment-hero {
+      background: linear-gradient(135deg, var(--surface-color) 0%, var(--background-color) 100%);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .recruitment-hero h1 {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .recruitment-hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted-color);
+      max-width: 700px;
+      margin: 0 auto 20px;
+      line-height: 1.7;
+    }
+
+    .facebook-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .facebook-link:hover {
+      border-bottom-color: var(--primary-color);
+    }
+
+    /* Interest Form Section */
+    .interest-section {
+      background-color: var(--background-color);
+      padding: 80px 20px;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .interest-form {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 50px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .interest-form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .interest-form h3 {
+      font-size: 1.8rem;
+      color: var(--text-color);
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--text-color);
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 18px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      background-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted-color);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .recruitment-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .recruitment-hero p {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
+
+      .interest-form {
+        padding: 30px 25px;
+        margin: 0 20px;
+      }
+
+      .interest-form h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo_white.png" alt="NSUCC Logo">
+            </a>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)">Team</a>
+                        <div class="dropdown-content">
+                            <a href="executives.html">Executive Body</a>
+                            <a href="subexecutives.html">Sub-Executive Body</a>
+                            <a href="facultyadvisor.html">Faculty Advisor</a>
+                        </div>
+                    </li>
+                    <li><a href="events.html">Events</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)">Publications</a>
+                        <div class="dropdown-content">
+                            <a href="english-matters.html">English Matters</a>
+                            <a href="echoes.html">Echoes</a>
+                        </div>
+                    </li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="recruitment.html" class="active">Join Us</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+  <main>
+    <section class="recruitment-hero">
+      <div class="container">
+        <h1>Join NSU Communications Club</h1>
+        <p>Thank you for your interest in joining the NSU Communications Club! While we are not currently recruiting new members, we appreciate your enthusiasm and would love to keep you informed about future opportunities.</p>
+        <p>Please keep an eye on our <a href="https://www.facebook.com/NSUCommunicationsClub" target="_blank" class="facebook-link">Facebook page</a> for announcements about upcoming recruitment periods and exciting club activities.</p>
+      </div>
+    </section>
+
+    <section class="interest-section">
+      <div class="container">
+        <div class="interest-form">
+          <h3>Register Your Interest</h3>
+          <form id="interest-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="nsu-id">NSU ID</label>
+              <input type="text" id="nsu-id" name="nsu-id" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="submit-btn">Register Interest</button>
+          </form>
+          <div class="form-footer">
+            <p>We'll notify you when recruitment opens again!</p>
+            <p><strong>Questions?</strong> Contact us at nsucommunicationsclub@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/images/logo_white.png" alt="NSUCC Footer Logo" class="footer-logo">
+                    <p>NSU Communications Club<br>Room #NAC121, North South University<br>nsucommunicationsclub@gmail.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="partners.html">Our Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/NSUCommunicationsClub" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/nsucommunicationsclub/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/nsucc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+            </div>
+        </div>
+    </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Form submission handler
+    document.getElementById('interest-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const nsuId = document.getElementById('nsu-id').value;
+      const email = document.getElementById('email').value;
+      
+      // Here you can add logic to send the data to your backend
+      // For now, we'll just show a simple alert
+      alert('Thank you for registering your interest! We will contact you when recruitment opens.');
+      
+      // Reset the form
+      this.reset();
+    });
+  </script>
+</body>
+</html>
