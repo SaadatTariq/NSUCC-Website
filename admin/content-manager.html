@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Manager - NSUCC Admin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1><i class="fas fa-edit"></i> Content Manager</h1>
+      <p>Update text content across your website</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Admin</a>
+    </div>
+  </header>
+
+  <main class="admin-content">
+    <div class="container">
+      <div class="instruction-section">
+        <h2><i class="fas fa-info-circle"></i> How to Update Website Content</h2>
+        
+        <div class="steps-section">
+          <h3>Common Content Updates</h3>
+          <p>Here are the most frequently updated content areas and how to modify them:</p>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-home"></i> Homepage Content</h4>
+          
+          <h5>Hero Section</h5>
+          <label>Main Headline:</label>
+          <input type="text" id="heroTitle" placeholder="Current: Empowering Voices, Building Leaders">
+          
+          <label>Subtitle:</label>
+          <textarea id="heroSubtitle" rows="2" placeholder="Current: Join NSU Communications Club and discover your potential..."></textarea>
+          
+          <h5>About Section</h5>
+          <label>About Description:</label>
+          <textarea id="aboutDesc" rows="4" placeholder="Update the main about section content..."></textarea>
+          
+          <button onclick="generateHomepageCode()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Homepage Updates
+          </button>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-info-circle"></i> About Page Content</h4>
+          
+          <label>Mission Statement:</label>
+          <textarea id="missionText" rows="3" placeholder="Update the club's mission statement..."></textarea>
+          
+          <label>Vision Statement:</label>
+          <textarea id="visionText" rows="3" placeholder="Update the club's vision statement..."></textarea>
+          
+          <label>About Description:</label>
+          <textarea id="aboutPageDesc" rows="5" placeholder="Update the detailed about page description..."></textarea>
+          
+          <button onclick="generateAboutCode()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate About Page Updates
+          </button>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-user-tie"></i> Faculty Advisor Content</h4>
+          
+          <label>Faculty Name:</label>
+          <input type="text" id="facultyName" placeholder="e.g., Dr. Jane Smith">
+          
+          <label>Faculty Title:</label>
+          <input type="text" id="facultyTitle" placeholder="e.g., Associate Professor">
+          
+          <label>Department:</label>
+          <input type="text" id="facultyDept" placeholder="e.g., Department of English">
+          
+          <label>Faculty Bio:</label>
+          <textarea id="facultyBio" rows="6" placeholder="Write faculty advisor biography..."></textarea>
+          
+          <button onclick="generateFacultyCode()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Faculty Updates
+          </button>
+        </div>
+
+        <div id="generatedContentCode" class="code-section" style="display: none;">
+          <h3>Generated Code</h3>
+          <p>Copy the relevant sections and update your HTML files:</p>
+          <textarea id="generatedContentCodeText" readonly></textarea>
+          <button onclick="copyContentCode()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Generated Code
+          </button>
+        </div>
+
+        <div class="steps-section">
+          <h3>File Locations for Content Updates</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div class="preview-card">
+              <strong>Homepage Content</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                File: <span class="file-path">index.html</span><br>
+                Hero section, about preview, highlights
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>About Page</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                File: <span class="file-path">about.html</span><br>
+                Mission, vision, detailed description
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>Faculty Advisor</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                File: <span class="file-path">facultyadvisor.html</span><br>
+                Faculty information and biography
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>Recruitment Page</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                File: <span class="file-path">recruitment.html</span><br>
+                Join us content, requirements
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="steps-section">
+          <h3>Quick Content Update Guide</h3>
+          <ol class="steps-list">
+            <li>Identify the content you want to change</li>
+            <li>Open the appropriate HTML file</li>
+            <li>Find the text using Ctrl+F (Windows) or Cmd+F (Mac)</li>
+            <li>Replace the old text with new content</li>
+            <li>Save the file and test the changes</li>
+          </ol>
+        </div>
+
+        <div class="warning-section">
+          <h3><i class="fas fa-exclamation-triangle"></i> Content Guidelines</h3>
+          <ul>
+            <li>Keep content professional and aligned with club values</li>
+            <li>Maintain consistent tone and style across pages</li>
+            <li>Proofread all content before publishing</li>
+            <li>Keep descriptions concise but informative</li>
+            <li>Update copyright year in footer when needed</li>
+            <li>Ensure all links and contact information are current</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3><i class="fas fa-lightbulb"></i> Content Writing Tips</h3>
+          <ul>
+            <li>Write in active voice for better engagement</li>
+            <li>Use bullet points for easy scanning</li>
+            <li>Include specific achievements and metrics</li>
+            <li>Keep paragraphs short (2-3 sentences)</li>
+            <li>Use keywords relevant to communications and leadership</li>
+            <li>Test readability - content should be accessible to all audiences</li>
+          </ul>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-envelope"></i> Contact Information Updates</h4>
+          <p>Update contact details across the website:</p>
+          
+          <label>Email Address:</label>
+          <input type="email" id="contactEmail" placeholder="nsucommunicationsclub@gmail.com">
+          
+          <label>Room Number:</label>
+          <input type="text" id="roomNumber" placeholder="Room #NAC121">
+          
+          <label>University Name:</label>
+          <input type="text" id="universityName" placeholder="North South University">
+          
+          <label>Facebook Page URL:</label>
+          <input type="url" id="facebookUrl" placeholder="https://www.facebook.com/NSUCommunicationsClub">
+          
+          <label>Instagram URL:</label>
+          <input type="url" id="instagramUrl" placeholder="https://www.instagram.com/nsucommunicationsclub/">
+          
+          <label>LinkedIn URL:</label>
+          <input type="url" id="linkedinUrl" placeholder="https://linkedin.com/company/nsucc">
+          
+          <button onclick="generateContactCode()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Contact Updates
+          </button>
+        </div>
+
+        <div class="steps-section">
+          <h3>How to Update Footer Information</h3>
+          <p>The footer appears on every page and contains contact information:</p>
+          <ol class="steps-list">
+            <li>Footer content is in every HTML file</li>
+            <li>Look for <code>&lt;footer class="main-footer"&gt;</code></li>
+            <li>Update email, address, and social media links</li>
+            <li>Remember to update ALL HTML files for consistency</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function generateHomepageCode() {
+      const title = document.getElementById('heroTitle').value;
+      const subtitle = document.getElementById('heroSubtitle').value;
+      const about = document.getElementById('aboutDesc').value;
+      
+      let code = '<!-- Homepage Content Updates -->\n\n';
+      
+      if (title) {
+        code += `<!-- Hero Title Update -->\n<h1 class="hero-title">${title}</h1>\n\n`;
+      }
+      
+      if (subtitle) {
+        code += `<!-- Hero Subtitle Update -->\n<p class="hero-subtitle">${subtitle}</p>\n\n`;
+      }
+      
+      if (about) {
+        code += `<!-- About Section Update -->\n<p class="about-description">${about}</p>\n\n`;
+      }
+      
+      document.getElementById('generatedContentCodeText').value = code;
+      document.getElementById('generatedContentCode').style.display = 'block';
+      document.getElementById('generatedContentCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function generateAboutCode() {
+      const mission = document.getElementById('missionText').value;
+      const vision = document.getElementById('visionText').value;
+      const aboutDesc = document.getElementById('aboutPageDesc').value;
+      
+      let code = '<!-- About Page Content Updates -->\n\n';
+      
+      if (mission) {
+        code += `<!-- Mission Statement Update -->\n<p class="mission-text">${mission}</p>\n\n`;
+      }
+      
+      if (vision) {
+        code += `<!-- Vision Statement Update -->\n<p class="vision-text">${vision}</p>\n\n`;
+      }
+      
+      if (aboutDesc) {
+        code += `<!-- About Description Update -->\n<p class="about-description">${aboutDesc}</p>\n\n`;
+      }
+      
+      document.getElementById('generatedContentCodeText').value = code;
+      document.getElementById('generatedContentCode').style.display = 'block';
+      document.getElementById('generatedContentCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function generateFacultyCode() {
+      const name = document.getElementById('facultyName').value;
+      const title = document.getElementById('facultyTitle').value;
+      const dept = document.getElementById('facultyDept').value;
+      const bio = document.getElementById('facultyBio').value;
+      
+      let code = '<!-- Faculty Advisor Content Updates -->\n\n';
+      
+      if (name) {
+        code += `<!-- Faculty Name Update -->\n<h3>${name}</h3>\n\n`;
+      }
+      
+      if (title) {
+        code += `<!-- Faculty Title Update -->\n<p class="faculty-title">${title}</p>\n\n`;
+      }
+      
+      if (dept) {
+        code += `<!-- Department Update -->\n<p class="faculty-department">${dept}</p>\n\n`;
+      }
+      
+      if (bio) {
+        code += `<!-- Faculty Bio Update -->\n<p class="faculty-bio">${bio}</p>\n\n`;
+      }
+      
+      document.getElementById('generatedContentCodeText').value = code;
+      document.getElementById('generatedContentCode').style.display = 'block';
+      document.getElementById('generatedContentCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function generateContactCode() {
+      const email = document.getElementById('contactEmail').value;
+      const room = document.getElementById('roomNumber').value;
+      const university = document.getElementById('universityName').value;
+      const facebook = document.getElementById('facebookUrl').value;
+      const instagram = document.getElementById('instagramUrl').value;
+      const linkedin = document.getElementById('linkedinUrl').value;
+      
+      let code = '<!-- Contact Information Updates -->\n\n';
+      
+      if (email || room || university) {
+        code += `<!-- Footer Contact Info -->\n<p>\n  NSU Communications Club<br>\n  ${room || 'Room #NAC121'}, ${university || 'North South University'}<br>\n  ${email || 'nsucommunicationsclub@gmail.com'}\n</p>\n\n`;
+      }
+      
+      if (facebook || instagram || linkedin) {
+        code += `<!-- Footer Social Links -->\n<div class="social-links">\n`;
+        if (facebook) code += `  <a href="${facebook}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>\n`;
+        if (instagram) code += `  <a href="${instagram}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>\n`;
+        if (linkedin) code += `  <a href="${linkedin}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>\n`;
+        code += `</div>\n\n`;
+      }
+      
+      document.getElementById('generatedContentCodeText').value = code;
+      document.getElementById('generatedContentCode').style.display = 'block';
+      document.getElementById('generatedContentCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyContentCode() {
+      const generatedCode = document.getElementById('generatedContentCodeText');
+      generatedCode.select();
+      generatedCode.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(generatedCode.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

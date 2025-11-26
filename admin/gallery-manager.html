@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Manager - NSUCC Admin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1><i class="fas fa-images"></i> Gallery Manager</h1>
+      <p>Update gallery photos and images</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Admin</a>
+    </div>
+  </header>
+
+  <main class="admin-content">
+    <div class="container">
+      <div class="instruction-section">
+        <h2><i class="fas fa-info-circle"></i> How to Manage Gallery Images</h2>
+        
+        <div class="steps-section">
+          <h3>Step 1: Prepare Your Images</h3>
+          <ol class="steps-list">
+            <li>Use high-quality images (minimum 1920x1080 pixels for best results)</li>
+            <li>Save images as JPG or PNG format</li>
+            <li>Optimize file sizes (keep under 2MB each for faster loading)</li>
+            <li>Name files descriptively (e.g., "event2024_1.jpg", "workshop_photo.jpg")</li>
+            <li>Upload images to: <span class="file-path">assets/images/gallery/</span></li>
+          </ol>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 2: Update Gallery Slider (Homepage)</h3>
+          <p>The homepage features a photo slider. To update these images:</p>
+          <ol class="steps-list">
+            <li>Open <span class="file-path">index.html</span></li>
+            <li>Find the section with <code>&lt;div class="gallery-slider"&gt;</code></li>
+            <li>Replace image file names in the slider</li>
+            <li>Ensure slide navigation numbers match the number of images</li>
+          </ol>
+          
+          <h4>Current Slider Images:</h4>
+          <ul style="margin-top: 1rem;">
+            <li><code>slide1.jpeg</code> - First slide image</li>
+            <li><code>slide2.jpeg</code> - Second slide image</li>
+            <li><code>slide3.jpg</code> - Third slide image</li>
+            <li><code>slide4.jpg</code> - Fourth slide image</li>
+            <li><code>slide5.jpg</code> - Fifth slide image</li>
+            <li><code>slide6.jpg</code> - Sixth slide image</li>
+            <li><code>slide7.jpg</code> - Seventh slide image</li>
+          </ul>
+        </div>
+
+        <div class="form-section">
+          <h4>Gallery Slider Image Generator</h4>
+          <p>Add new images to the homepage slider:</p>
+          
+          <label>Image File Name:</label>
+          <input type="text" id="slideImage" placeholder="e.g., new_event.jpg">
+          
+          <label>Image Alt Text (Description):</label>
+          <input type="text" id="slideAlt" placeholder="e.g., NSUCC Workshop 2025">
+          
+          <button onclick="generateSliderCode()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Slider Image Code
+          </button>
+        </div>
+
+        <div id="generatedSliderCode" class="code-section" style="display: none;">
+          <h3>Generated Slider Image Code</h3>
+          <p>Add this to the gallery slider in index.html:</p>
+          <textarea id="generatedSliderCodeText" readonly></textarea>
+          <button onclick="copySliderCode()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Generated Code
+          </button>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 3: Quick Image Replacement</h3>
+          <p>To replace images without changing the website structure:</p>
+          <ol class="steps-list">
+            <li>Keep the same file name as the existing image</li>
+            <li>Replace the old image file with your new image</li>
+            <li>Clear browser cache (Ctrl+F5 or Cmd+Shift+R) to see changes</li>
+          </ol>
+          
+          <div class="warning-section" style="margin-top: 1rem;">
+            <h4><i class="fas fa-exclamation-triangle"></i> Image Replacement Note</h4>
+            <p>This method is easiest but requires your new image to have the exact same filename as the old one.</p>
+          </div>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 4: Add Background Images</h3>
+          <p>Update background images used throughout the site:</p>
+          <ol class="steps-list">
+            <li>Main background: <code>bg.png</code></li>
+            <li>Gallery title image: <code>Title.JPEG</code></li>
+            <li>Other decorative images: <code>photo4.jpg</code></li>
+          </ol>
+        </div>
+
+        <div class="warning-section">
+          <h3><i class="fas fa-exclamation-triangle"></i> Image Guidelines</h3>
+          <ul>
+            <li>Always backup your gallery folder before making changes</li>
+            <li>Optimize images for web to ensure fast loading</li>
+            <li>Maintain consistent image quality and style</li>
+            <li>Test gallery functionality after adding new images</li>
+            <li>Ensure images are appropriate and represent the club well</li>
+            <li>Consider image orientation (landscape works best for sliders)</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3><i class="fas fa-lightbulb"></i> Image Optimization Tips</h3>
+          <ul>
+            <li>Use JPG for photographs, PNG for graphics with transparency</li>
+            <li>Resize images to appropriate dimensions before uploading</li>
+            <li>Compress images using online tools (TinyPNG, etc.)</li>
+            <li>Maintain aspect ratios to prevent distortion</li>
+            <li>Use descriptive alt text for accessibility</li>
+            <li>Keep a backup of original high-resolution images</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <h3>Gallery Slider Structure</h3>
+          <p>Here's how slider images are structured:</p>
+          <textarea readonly>
+<div class="gallery-slide">
+  <img src="assets/images/gallery/slide1.jpeg" alt="NSUCC Event Photo" />
+</div>
+
+<!-- Slider Navigation Dots -->
+<div class="slider-nav">
+  <span class="nav-dot" data-slide="1"></span>
+  <span class="nav-dot" data-slide="2"></span>
+  <!-- Add more dots for additional slides -->
+</div></textarea>
+        </div>
+
+        <div class="preview-section">
+          <h3><i class="fas fa-folder-open"></i> Current Gallery Structure</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div class="preview-card">
+              <strong>Slider Images</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                slide1.jpeg through slide7.jpg<br>
+                <em>Used in homepage gallery slider</em>
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>Background Images</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                bg.png, Title.JPEG<br>
+                <em>Used for backgrounds and headers</em>
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>Decorative Images</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                photo4.jpg<br>
+                <em>Used for additional gallery elements</em>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-plus"></i> Add New Gallery Section</h4>
+          <p>If you want to create a dedicated gallery page with more photos:</p>
+          
+          <label>Gallery Section Title:</label>
+          <input type="text" id="galleryTitle" placeholder="e.g., Workshop 2025 Photos">
+          
+          <label>Number of Photos:</label>
+          <input type="number" id="photoCount" value="6" min="1" max="20">
+          
+          <label>Base Filename:</label>
+          <input type="text" id="baseFilename" placeholder="e.g., workshop2025_ (will add numbers)">
+          
+          <button onclick="generateGallerySection()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Gallery Section
+          </button>
+        </div>
+
+        <div id="generatedGallerySection" class="code-section" style="display: none;">
+          <h3>Generated Gallery Section</h3>
+          <p>Use this code to create a new gallery section:</p>
+          <textarea id="generatedGallerySectionText" readonly></textarea>
+          <button onclick="copyGallerySection()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Gallery Section
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function generateSliderCode() {
+      const imageName = document.getElementById('slideImage').value || 'new_slide.jpg';
+      const altText = document.getElementById('slideAlt').value || 'NSUCC Photo';
+      
+      const sliderCode = `<div class="gallery-slide">
+  <img src="assets/images/gallery/${imageName}" alt="${altText}" />
+</div>`;
+
+      document.getElementById('generatedSliderCodeText').value = sliderCode;
+      document.getElementById('generatedSliderCode').style.display = 'block';
+      document.getElementById('generatedSliderCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copySliderCode() {
+      const generatedCode = document.getElementById('generatedSliderCodeText');
+      generatedCode.select();
+      generatedCode.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(generatedCode.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+
+    function generateGallerySection() {
+      const title = document.getElementById('galleryTitle').value || 'New Gallery Section';
+      const count = parseInt(document.getElementById('photoCount').value) || 6;
+      const baseFilename = document.getElementById('baseFilename').value || 'gallery_';
+      
+      let galleryCode = `<section class="gallery-section">
+  <div class="container">
+    <h2 class="section-title">${title}</h2>
+    <div class="gallery-grid">
+`;
+
+      for (let i = 1; i <= count; i++) {
+        galleryCode += `      <div class="gallery-item" data-aos="fade-up" data-aos-delay="${i * 100}">
+        <img src="assets/images/gallery/${baseFilename}${i}.jpg" alt="${title} Photo ${i}" />
+      </div>
+`;
+      }
+
+      galleryCode += `    </div>
+  </div>
+</section>`;
+
+      document.getElementById('generatedGallerySectionText').value = galleryCode;
+      document.getElementById('generatedGallerySection').style.display = 'block';
+      document.getElementById('generatedGallerySection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyGallerySection() {
+      const generatedCode = document.getElementById('generatedGallerySectionText');
+      generatedCode.select();
+      generatedCode.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(generatedCode.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

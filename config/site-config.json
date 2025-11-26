@@ -1,0 +1,25 @@
+{
+  "siteInfo": {
+    "title": "NSU Communications Club",
+    "subtitle": "Empowering Voices, Building Leaders",
+    "email": "nsucommunicationsclub@gmail.com",
+    "location": "Room #NAC121, North South University",
+    "description": "The premier communications and leadership development organization at North South University, fostering excellence in communication skills and professional growth."
+  },
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/NSUCommunicationsClub",
+    "instagram": "https://www.instagram.com/nsucommunicationsclub/",
+    "linkedin": "https://linkedin.com/company/nsucc"
+  },
+  "currentTerm": {
+    "year": "2024-2025",
+    "startDate": "2024-09-01",
+    "endDate": "2025-08-31"
+  },
+  "lastUpdated": "2025-11-26",
+  "admin": {
+    "version": "1.0.0",
+    "maintainer": "Saadat Tariq",
+    "supportEmail": "saadattariq04@gmail.com"
+  }
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Manager - NSUCC Admin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1><i class="fas fa-users"></i> Executive Manager</h1>
+      <p>Update executive team photos and information</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Admin</a>
+    </div>
+  </header>
+
+  <main class="admin-content">
+    <div class="container">
+      <div class="instruction-section">
+        <h2><i class="fas fa-info-circle"></i> How to Update Executive Team</h2>
+        
+        <div class="steps-section">
+          <h3>Step 1: Prepare Executive Photos</h3>
+          <ol class="steps-list">
+            <li>Take or obtain high-quality photos of executives (preferably 800x1200 pixels)</li>
+            <li>Save photos as PNG or JPG format</li>
+            <li>Name files descriptively (e.g., "President.png", "Vice-President.png")</li>
+            <li>Upload photos to: <span class="file-path">assets/images/executives/</span></li>
+          </ol>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 2: Update Executive Information</h3>
+          <ol class="steps-list">
+            <li>Open the file: <span class="file-path">executives.html</span></li>
+            <li>Find the executive card you want to update</li>
+            <li>Replace the photo path, name, title, and description</li>
+            <li>Update social media links if needed</li>
+          </ol>
+        </div>
+
+        <div class="form-section">
+          <h4>Executive Information Generator</h4>
+          <p>Fill this form to generate the HTML code for an executive:</p>
+          
+          <label>Executive Name:</label>
+          <input type="text" id="execName" placeholder="e.g., John Doe">
+          
+          <label>Position/Title:</label>
+          <input type="text" id="execTitle" placeholder="e.g., President">
+          
+          <label>Photo File Name:</label>
+          <input type="text" id="execPhoto" placeholder="e.g., President.png">
+          
+          <label>Facebook URL (optional):</label>
+          <input type="text" id="execFacebook" placeholder="https://www.facebook.com/username">
+          
+          <label>LinkedIn URL (optional):</label>
+          <input type="text" id="execLinkedin" placeholder="https://www.linkedin.com/in/username">
+          
+          <label>Bio/Description:</label>
+          <textarea id="execBio" rows="6" placeholder="Write a compelling biography for this executive..."></textarea>
+          
+          <button onclick="generateExecutiveCode()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Executive Code
+          </button>
+        </div>
+
+        <div id="generatedExecCode" class="code-section" style="display: none;">
+          <h3>Generated Executive Code</h3>
+          <p>Copy this code and replace the corresponding executive card in executives.html:</p>
+          <textarea id="generatedExecutiveCode" readonly></textarea>
+          <button onclick="copyExecutiveCode()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Generated Code
+          </button>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 3: Quick Photo Replacement Guide</h3>
+          <p>To quickly replace photos without changing text:</p>
+          <ol class="steps-list">
+            <li>Keep the same file name as the current photo</li>
+            <li>Replace the old photo file with the new one</li>
+            <li>Clear your browser cache (Ctrl+F5 or Cmd+Shift+R) to see changes</li>
+          </ol>
+          
+          <h4>Current Executive Photo Files:</h4>
+          <ul style="margin-top: 1rem;">
+            <li><code>President.png</code> - President photo</li>
+            <li><code>Vice-President.png</code> - Vice-President photo</li>
+            <li><code>General Secretary.png</code> - General Secretary photo</li>
+            <li><code>Treasurer.png</code> - Treasurer photo</li>
+            <li><code>JS_Int.png</code> - Joint Secretary (Internal) photo</li>
+            <li><code>JS_Ext.png</code> - Joint Secretary (External) photo</li>
+          </ul>
+        </div>
+
+        <div class="warning-section">
+          <h3><i class="fas fa-exclamation-triangle"></i> Important Notes</h3>
+          <ul>
+            <li>Always backup your executives.html file before making changes</li>
+            <li>Keep photo file sizes reasonable (under 2MB each)</li>
+            <li>Maintain consistent photo dimensions for better layout</li>
+            <li>Test the page after updates to ensure proper display</li>
+            <li>Update social media links to current profiles</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+          <ul>
+            <li>Use consistent background colors for executive photos</li>
+            <li>Write bios in third person for professionalism</li>
+            <li>Keep descriptions between 100-200 words</li>
+            <li>Include achievements and leadership qualities</li>
+            <li>Verify all social media links are working</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <h3>Sample Executive Card Structure</h3>
+          <p>Here's how an executive card is structured in the HTML:</p>
+          <textarea readonly>
+<div class="executive-card" data-aos="fade-up" data-aos-delay="100">
+  <div class="photo">
+    <img src="assets/images/executives/President.png" alt="Executive Name" />
+  </div>
+  <div class="info">
+    <h3>Executive Name</h3>
+    <p class="title">Position Title</p>
+    <p class="description">
+      Executive biography and description...
+    </p>
+    <div class="socials">
+      <a href="FACEBOOK_URL" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="LINKEDIN_URL" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</div></textarea>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function generateExecutiveCode() {
+      const name = document.getElementById('execName').value || 'Executive Name';
+      const title = document.getElementById('execTitle').value || 'Position Title';
+      const photo = document.getElementById('execPhoto').value || 'Executive.png';
+      const facebook = document.getElementById('execFacebook').value;
+      const linkedin = document.getElementById('execLinkedin').value;
+      const bio = document.getElementById('execBio').value || 'Executive biography and description...';
+      
+      let socialLinks = '';
+      if (facebook) {
+        socialLinks += `      <a href="${facebook}" target="_blank" aria-label="Facebook"
+        ><i class="fab fa-facebook"></i
+      ></a>\n`;
+      }
+      if (linkedin) {
+        socialLinks += `      <a href="${linkedin}" target="_blank" aria-label="LinkedIn"
+        ><i class="fab fa-linkedin"></i
+      ></a>\n`;
+      }
+      
+      const execCode = `            <div class="executive-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="photo">
+                <img
+                  src="assets/images/executives/${photo}"
+                  alt="${name}"
+                />
+              </div>
+              <div class="info">
+                <h3>${name}</h3>
+                <p class="title">${title}</p>
+                <p class="description">
+                  ${bio}
+                </p>
+                <div class="socials">
+${socialLinks}                </div>
+              </div>
+            </div>`;
+
+      document.getElementById('generatedExecutiveCode').value = execCode;
+      document.getElementById('generatedExecCode').style.display = 'block';
+      document.getElementById('generatedExecCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyExecutiveCode() {
+      const generatedCode = document.getElementById('generatedExecutiveCode');
+      generatedCode.select();
+      generatedCode.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(generatedCode.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

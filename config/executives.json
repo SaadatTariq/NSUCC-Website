@@ -1,0 +1,68 @@
+[
+  {
+    "id": "president",
+    "name": "Md Saadat Tariq",
+    "position": "President",
+    "photo": "assets/images/executives/President.png",
+    "description": "Md Saadat Tariq embodies structured leadership, quiet ambition, and a deep commitment to excellence. Since joining the North South University Communications Club (NSUCC) in 2022, he has grown from an introverted newcomer into a versatile leader with hands-on experience in administration, sponsorship, marketing, graphics, logistics, and strategic coordination.",
+    "facebook": "https://www.facebook.com/saadattariq04",
+    "linkedin": "https://www.linkedin.com/in/md-saadat-tariq/",
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "vicepresident",
+    "name": "Saiba Adnan",
+    "position": "Vice-President",
+    "photo": "assets/images/executives/Vice-Precident.png",
+    "description": "Description coming soon.",
+    "facebook": "https://www.facebook.com/saibaxadnan",
+    "linkedin": "https://www.linkedin.com/in/saiba-adnan-563129253/",
+    "order": 2,
+    "active": true
+  },
+  {
+    "id": "generalsecretary",
+    "name": "Isnat Hossain Rijon",
+    "position": "General Secretary",
+    "photo": "assets/images/executives/General Secretary.png",
+    "description": "Description coming soon.",
+    "facebook": "https://www.facebook.com/IsnatRijon4",
+    "linkedin": "",
+    "order": 3,
+    "active": true
+  },
+  {
+    "id": "treasurer",
+    "name": "Annan Rahman Sahil",
+    "position": "Treasurer",
+    "photo": "assets/images/executives/Treasurer.png",
+    "description": "Annan Rahman Sahil joined NSUCC in 2022, and has been our beloved, ever-reliable Treasurer, taking care of admin work and logistics with dedication and heart. Despite juggling his own family responsibilities, he's always there whenever the club needs him, quietly making sure everything runs smoothly.",
+    "facebook": "https://www.facebook.com/annan.sahil",
+    "linkedin": "https://www.linkedin.com/in/annan-rahman-sahil-a5a113200/",
+    "order": 4,
+    "active": true
+  },
+  {
+    "id": "jsinternal",
+    "name": "Armeen Hossain",
+    "position": "Joint Secretary (Internal Affairs)",
+    "photo": "assets/images/executives/JS_Int.png",
+    "description": "Armeen Hossain has been a defining presence at NSUCC since joining in 2019. Over the years, she has grown into a true pillar of the club — a leader whose warmth, humour, and bubbly energy make her instantly approachable, yet whose sharp discipline and firm authority command respect when it matters most.",
+    "facebook": "https://www.facebook.com/armeenzhossain",
+    "linkedin": "https://www.linkedin.com/in/armeen-hossain-56a8b51aa/",
+    "order": 5,
+    "active": true
+  },
+  {
+    "id": "jsexternal",
+    "name": "Atin Annan Al Haque",
+    "position": "Joint Secretary (External Affairs)",
+    "photo": "assets/images/executives/JS_Ext.png",
+    "description": "Description coming soon.",
+    "facebook": "https://www.facebook.com/mx4417v",
+    "linkedin": "",
+    "order": 6,
+    "active": true
+  }
+]

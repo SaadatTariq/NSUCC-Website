@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Manager - NSUCC Admin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1><i class="fas fa-calendar-alt"></i> Event Manager</h1>
+      <p>Add, edit, or remove events from your website</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Admin</a>
+    </div>
+  </header>
+
+  <main class="admin-content">
+    <div class="container">
+      <div class="instruction-section">
+        <h2><i class="fas fa-info-circle"></i> How to Add a New Event</h2>
+        
+        <div class="steps-section">
+          <h3>Step 1: Prepare Your Event Logo</h3>
+          <ol class="steps-list">
+            <li>Create or obtain your event logo (PNG or JPG format recommended)</li>
+            <li>Resize the image to approximately 300x300 pixels for best results</li>
+            <li>Name the file descriptively (e.g., "WordCraft2025.png")</li>
+            <li>Upload the logo to: <span class="file-path">assets/images/event_logo/</span></li>
+          </ol>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 2: Edit the Events Page</h3>
+          <ol class="steps-list">
+            <li>Open the file: <span class="file-path">events.html</span></li>
+            <li>Find the section that says <code>&lt;!-- Add new events here --&gt;</code></li>
+            <li>Copy the template below and paste it after the last event card</li>
+            <li>Replace the placeholder information with your event details</li>
+          </ol>
+        </div>
+
+        <div class="code-section">
+          <h3>Event Card Template</h3>
+          <p>Copy and paste this template, then fill in your event details:</p>
+          <textarea id="eventTemplate" readonly>
+<div class="event-card" data-aos="fade-up" data-aos-delay="100">
+  <div class="event-logo">
+    <img src="assets/images/event_logo/YOUR_LOGO_NAME.png" alt="Your Event Name" />
+  </div>
+  <div class="event-content">
+    <div class="event-header">
+      <h3 class="event-title">Your Event Name</h3>
+      <span class="event-season">Season X | Year</span>
+    </div>
+    <div class="event-details">
+      <div class="event-info">
+        <span><i class="fas fa-calendar"></i> Date: Month Day, Year</span>
+        <span><i class="fas fa-map-marker-alt"></i> Venue: Your Venue</span>
+        <span><i class="fas fa-users"></i> Participants: Number of participants</span>
+        <span><i class="fas fa-trophy"></i> Title Sponsor: Sponsor Name</span>
+      </div>
+      <p class="event-description">
+        Write a compelling description of your event here. Include what makes it special, 
+        the objectives, key highlights, and any notable achievements or features.
+      </p>
+      <ul class="event-highlights">
+        <li>Key highlight or feature 1</li>
+        <li>Key highlight or feature 2</li>
+        <li>Key highlight or feature 3</li>
+        <li>Prizes/Recognition information</li>
+      </ul>
+    </div>
+  </div>
+</div></textarea>
+          <button onclick="copyTemplate()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Template
+          </button>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 3: Fill in Your Event Information</h3>
+          <div class="form-section">
+            <h4>Event Information Form</h4>
+            <p>Fill this form to generate your event code:</p>
+            
+            <label>Event Name:</label>
+            <input type="text" id="eventName" placeholder="e.g., WordCraft">
+            
+            <label>Season & Year:</label>
+            <input type="text" id="eventSeason" placeholder="e.g., Season 3 | 2025">
+            
+            <label>Date:</label>
+            <input type="text" id="eventDate" placeholder="e.g., March 15, 2025">
+            
+            <label>Venue:</label>
+            <input type="text" id="eventVenue" placeholder="e.g., NSU Auditorium">
+            
+            <label>Participants:</label>
+            <input type="text" id="eventParticipants" placeholder="e.g., 150+ students">
+            
+            <label>Title Sponsor:</label>
+            <input type="text" id="eventSponsor" placeholder="e.g., Tech Company Ltd.">
+            
+            <label>Logo File Name:</label>
+            <input type="text" id="eventLogo" placeholder="e.g., wordcraft2025.png">
+            
+            <label>Event Description:</label>
+            <textarea id="eventDescription" rows="4" placeholder="Write a compelling description of your event..."></textarea>
+            
+            <label>Event Highlights (one per line):</label>
+            <textarea id="eventHighlights" rows="4" placeholder="Interactive workshops&#10;Industry expert speakers&#10;Networking opportunities&#10;Certificates and prizes"></textarea>
+            
+            <button onclick="generateEventCode()" class="generate-btn">
+              <i class="fas fa-code"></i> Generate Event Code
+            </button>
+          </div>
+        </div>
+
+        <div id="generatedCode" class="code-section" style="display: none;">
+          <h3>Generated Event Code</h3>
+          <p>Copy this code and paste it into your events.html file:</p>
+          <textarea id="generatedEventCode" readonly></textarea>
+          <button onclick="copyGeneratedCode()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Generated Code
+          </button>
+        </div>
+
+        <div class="warning-section">
+          <h3><i class="fas fa-exclamation-triangle"></i> Important Tips</h3>
+          <ul>
+            <li>Always backup your events.html file before making changes</li>
+            <li>Make sure your logo file is uploaded before adding the event</li>
+            <li>Test the page after adding to ensure everything displays correctly</li>
+            <li>Keep descriptions concise but informative</li>
+            <li>Use consistent formatting for better visual appeal</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3><i class="fas fa-question-circle"></i> Need Help?</h3>
+          <p>If you need assistance:</p>
+          <ul>
+            <li>Look at existing events in events.html for reference</li>
+            <li>Ensure image file names match exactly (case-sensitive)</li>
+            <li>Contact the technical team if you encounter issues</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function copyTemplate() {
+      const template = document.getElementById('eventTemplate');
+      template.select();
+      template.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(template.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+
+    function generateEventCode() {
+      const name = document.getElementById('eventName').value || 'Your Event Name';
+      const season = document.getElementById('eventSeason').value || 'Season X | Year';
+      const date = document.getElementById('eventDate').value || 'Month Day, Year';
+      const venue = document.getElementById('eventVenue').value || 'Your Venue';
+      const participants = document.getElementById('eventParticipants').value || 'Number of participants';
+      const sponsor = document.getElementById('eventSponsor').value || 'Sponsor Name';
+      const logo = document.getElementById('eventLogo').value || 'YOUR_LOGO_NAME.png';
+      const description = document.getElementById('eventDescription').value || 'Write a compelling description of your event here...';
+      const highlights = document.getElementById('eventHighlights').value || 'Key highlight 1\nKey highlight 2\nKey highlight 3\nPrizes information';
+      
+      const highlightsList = highlights.split('\n').filter(h => h.trim()).map(h => `        <li>${h.trim()}</li>`).join('\n');
+      
+      const eventCode = `<div class="event-card" data-aos="fade-up" data-aos-delay="100">
+  <div class="event-logo">
+    <img src="assets/images/event_logo/${logo}" alt="${name}" />
+  </div>
+  <div class="event-content">
+    <div class="event-header">
+      <h3 class="event-title">${name}</h3>
+      <span class="event-season">${season}</span>
+    </div>
+    <div class="event-details">
+      <div class="event-info">
+        <span><i class="fas fa-calendar"></i> Date: ${date}</span>
+        <span><i class="fas fa-map-marker-alt"></i> Venue: ${venue}</span>
+        <span><i class="fas fa-users"></i> Participants: ${participants}</span>
+        <span><i class="fas fa-trophy"></i> Title Sponsor: ${sponsor}</span>
+      </div>
+      <p class="event-description">
+        ${description}
+      </p>
+      <ul class="event-highlights">
+${highlightsList}
+      </ul>
+    </div>
+  </div>
+</div>`;
+
+      document.getElementById('generatedEventCode').value = eventCode;
+      document.getElementById('generatedCode').style.display = 'block';
+      document.getElementById('generatedCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyGeneratedCode() {
+      const generatedCode = document.getElementById('generatedEventCode');
+      generatedCode.select();
+      generatedCode.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(generatedCode.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

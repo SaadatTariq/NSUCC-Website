@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partners Manager - NSUCC Admin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1><i class="fas fa-handshake"></i> Partners Manager</h1>
+      <p>Add, remove, or update partner organizations</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Admin</a>
+    </div>
+  </header>
+
+  <main class="admin-content">
+    <div class="container">
+      <div class="instruction-section">
+        <h2><i class="fas fa-info-circle"></i> How to Manage Partners</h2>
+        
+        <div class="steps-section">
+          <h3>Step 1: Prepare Partner Logos</h3>
+          <ol class="steps-list">
+            <li>Obtain high-quality partner logos (PNG, JPG, or SVG format)</li>
+            <li>Resize logos to approximately 200x200 pixels (square format works best)</li>
+            <li>Use transparent backgrounds for PNG files when possible</li>
+            <li>Name files descriptively (e.g., "CompanyName.png")</li>
+            <li>Upload logos to: <span class="file-path">assets/images/partners/</span></li>
+          </ol>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 2: Add New Partner</h3>
+          <ol class="steps-list">
+            <li>Open the file: <span class="file-path">partners.html</span></li>
+            <li>Find the partners grid section</li>
+            <li>Copy an existing partner card template</li>
+            <li>Replace with new partner information</li>
+            <li>Update the partner count in statistics if needed</li>
+          </ol>
+        </div>
+
+        <div class="form-section">
+          <h4>Partner Information Generator</h4>
+          <p>Fill this form to generate the HTML code for a new partner:</p>
+          
+          <label>Partner/Company Name:</label>
+          <input type="text" id="partnerName" placeholder="e.g., Tech Solutions Ltd.">
+          
+          <label>Logo File Name:</label>
+          <input type="text" id="partnerLogo" placeholder="e.g., TechSolutions.png">
+          
+          <label>Animation Delay (in milliseconds):</label>
+          <input type="number" id="animationDelay" value="100" min="0" max="1000" step="25">
+          <small style="color: #64748b; font-size: 0.9rem;">Increase by 25-50ms for each new partner to create staggered animation</small>
+          
+          <button onclick="generatePartnerCode()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Partner Code
+          </button>
+        </div>
+
+        <div id="generatedPartnerCode" class="code-section" style="display: none;">
+          <h3>Generated Partner Code</h3>
+          <p>Copy this code and paste it in the partners grid section:</p>
+          <textarea id="generatedPartnerCodeText" readonly></textarea>
+          <button onclick="copyPartnerCode()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Generated Code
+          </button>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 3: Remove a Partner</h3>
+          <ol class="steps-list">
+            <li>Open <span class="file-path">partners.html</span></li>
+            <li>Find the partner card you want to remove</li>
+            <li>Delete the entire <code>&lt;div class="partner-card"&gt;...&lt;/div&gt;</code> section</li>
+            <li>Update the partner count in the statistics section</li>
+            <li>Optionally, delete the logo file from the partners folder</li>
+          </ol>
+        </div>
+
+        <div class="steps-section">
+          <h3>Step 4: Update Partner Statistics</h3>
+          <p>After adding or removing partners, update the count in the statistics section:</p>
+          <ol class="steps-list">
+            <li>Find the section with <code>&lt;span class="stat-number"&gt;25+&lt;/span&gt;</code></li>
+            <li>Update the number to reflect current partner count</li>
+            <li>If you have significantly more partners, consider updating other stats too</li>
+          </ol>
+          
+          <div class="code-section" style="background: #1e293b; margin-top: 1rem;">
+            <h4 style="color: #f8fafc;">Statistics Section Location:</h4>
+            <textarea readonly style="height: 150px;">
+<div class="stat-item">
+  <span class="stat-number">25+</span>  <!-- UPDATE THIS NUMBER -->
+  <span class="stat-label">Active Partners</span>
+</div></textarea>
+          </div>
+        </div>
+
+        <div class="warning-section">
+          <h3><i class="fas fa-exclamation-triangle"></i> Important Guidelines</h3>
+          <ul>
+            <li>Always backup partners.html before making changes</li>
+            <li>Ensure logo files are optimized for web (under 500KB each)</li>
+            <li>Test the page after adding partners to ensure proper display</li>
+            <li>Maintain consistent logo quality and style</li>
+            <li>Get permission before adding partner logos</li>
+            <li>Keep partner logos in a professional, clean format</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3><i class="fas fa-lightbulb"></i> Pro Tips for Partner Management</h3>
+          <ul>
+            <li>Group similar partners together (e.g., all banks, all tech companies)</li>
+            <li>Use consistent animation delays (increment by 25-50ms)</li>
+            <li>Consider partner hierarchy when ordering (major partners first)</li>
+            <li>Regularly review and remove inactive partnerships</li>
+            <li>Update statistics to reflect current partnership impact</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <h3>Partner Card Template</h3>
+          <p>Basic structure of a partner card:</p>
+          <textarea readonly>
+<div class="partner-card" data-aos="fade-up" data-aos-delay="100">
+  <div class="partner-logo">
+    <img src="assets/images/partners/CompanyName.png" alt="Company Name">
+  </div>
+</div></textarea>
+        </div>
+
+        <div class="preview-section">
+          <h3><i class="fas fa-eye"></i> Current Partners Preview</h3>
+          <p>Here are the current partners (as reference for positioning new ones):</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div class="preview-card">
+              <strong>Major Partners:</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                Pubali Bank, Augmedix, UNDP, Uber
+              </div>
+            </div>
+            <div class="preview-card">
+              <strong>Corporate Partners:</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                Dhaka Bank, TBS, Global Brand Ltd, ICCB, DC, MME
+              </div>
+            </div>
+            <div class="preview-card">
+              <strong>Media & Tech:</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                Somoy TV, InstaCircle, GO, ViewSonic, BI
+              </div>
+            </div>
+            <div class="preview-card">
+              <strong>Others:</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                WellFood, Kangaroo, Savoy, Head Gear, etc.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function generatePartnerCode() {
+      const name = document.getElementById('partnerName').value || 'Partner Name';
+      const logo = document.getElementById('partnerLogo').value || 'partner.png';
+      const delay = document.getElementById('animationDelay').value || '100';
+      
+      const partnerCode = `        <div class="partner-card" data-aos="fade-up" data-aos-delay="${delay}">
+          <div class="partner-logo">
+            <img src="assets/images/partners/${logo}" alt="${name}">
+          </div>
+        </div>`;
+
+      document.getElementById('generatedPartnerCodeText').value = partnerCode;
+      document.getElementById('generatedPartnerCode').style.display = 'block';
+      document.getElementById('generatedPartnerCode').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyPartnerCode() {
+      const generatedCode = document.getElementById('generatedPartnerCodeText');
+      generatedCode.select();
+      generatedCode.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(generatedCode.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

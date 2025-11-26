@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Manager - NSUCC Admin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1><i class="fas fa-cogs"></i> Settings Manager</h1>
+      <p>Update site-wide settings and configuration</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Admin</a>
+    </div>
+  </header>
+
+  <main class="admin-content">
+    <div class="container">
+      <div class="instruction-section">
+        <h2><i class="fas fa-info-circle"></i> Site Settings Management</h2>
+        
+        <div class="form-section">
+          <h4><i class="fas fa-envelope"></i> Contact Information</h4>
+          <p>Update contact details that appear across the website:</p>
+          
+          <label>Club Email:</label>
+          <input type="email" id="clubEmail" value="nsucommunicationsclub@gmail.com">
+          
+          <label>Room Number:</label>
+          <input type="text" id="clubRoom" value="Room #NAC121">
+          
+          <label>University Name:</label>
+          <input type="text" id="clubUniversity" value="North South University">
+          
+          <label>Phone Number (optional):</label>
+          <input type="text" id="clubPhone" placeholder="+880 XXX XXX XXXX">
+          
+          <button onclick="generateContactSettings()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Contact Updates
+          </button>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-share-alt"></i> Social Media Links</h4>
+          <p>Update social media URLs that appear in footers and contact sections:</p>
+          
+          <label>Facebook Page URL:</label>
+          <input type="url" id="facebookUrl" value="https://www.facebook.com/NSUCommunicationsClub">
+          
+          <label>Instagram URL:</label>
+          <input type="url" id="instagramUrl" value="https://www.instagram.com/nsucommunicationsclub/">
+          
+          <label>LinkedIn Company URL:</label>
+          <input type="url" id="linkedinUrl" value="https://linkedin.com/company/nsucc">
+          
+          <label>Twitter/X URL (optional):</label>
+          <input type="url" id="twitterUrl" placeholder="https://twitter.com/nsucc">
+          
+          <label>YouTube Channel (optional):</label>
+          <input type="url" id="youtubeUrl" placeholder="https://youtube.com/@nsucc">
+          
+          <button onclick="generateSocialSettings()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Social Media Updates
+          </button>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-calendar"></i> Current Term Information</h4>
+          <p>Update information about the current executive term:</p>
+          
+          <label>Current Term Year:</label>
+          <input type="text" id="termYear" value="2024-2025">
+          
+          <label>Term Start Date:</label>
+          <input type="date" id="termStart">
+          
+          <label>Term End Date:</label>
+          <input type="date" id="termEnd">
+          
+          <label>Current Session:</label>
+          <select id="currentSession">
+            <option value="Spring">Spring</option>
+            <option value="Summer">Summer</option>
+            <option value="Fall">Fall</option>
+          </select>
+          
+          <button onclick="generateTermSettings()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Term Updates
+          </button>
+        </div>
+
+        <div id="generatedSettings" class="code-section" style="display: none;">
+          <h3>Generated Settings Code</h3>
+          <p>Use these updates across your website files:</p>
+          <textarea id="generatedSettingsText" readonly></textarea>
+          <button onclick="copySettingsCode()" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy Settings Code
+          </button>
+        </div>
+
+        <div class="steps-section">
+          <h3>Files That Need Settings Updates</h3>
+          <p>When updating contact information or social media links, you'll need to update these files:</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div class="preview-card">
+              <strong>All HTML Files</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                Footer sections contain contact info and social links<br>
+                <em>Update all 10 HTML files for consistency</em>
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>Executive Page</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                <span class="file-path">executives.html</span><br>
+                Update term year in hero section
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>About Page</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                <span class="file-path">about.html</span><br>
+                Contact information and current session
+              </div>
+            </div>
+            
+            <div class="preview-card">
+              <strong>Recruitment Page</strong>
+              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                <span class="file-path">recruitment.html</span><br>
+                Update recruitment period information
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-copyright"></i> Copyright and Footer Settings</h4>
+          
+          <label>Copyright Year:</label>
+          <input type="text" id="copyrightYear" value="2025">
+          
+          <label>Organization Name:</label>
+          <input type="text" id="orgName" value="NSU Communications Club">
+          
+          <label>Website Developer Credit:</label>
+          <input type="text" id="developerCredit" value="Developed by Saadat">
+          
+          <button onclick="generateCopyrightSettings()" class="generate-btn">
+            <i class="fas fa-code"></i> Generate Copyright Updates
+          </button>
+        </div>
+
+        <div class="form-section">
+          <h4><i class="fas fa-palette"></i> Site Branding</h4>
+          <p>Update logo and branding elements:</p>
+          
+          <label>Main Logo File:</label>
+          <input type="text" id="mainLogo" value="logo_white.png" readonly>
+          <small style="color: #64748b;">Located in: assets/images/</small>
+          
+          <label>Favicon File:</label>
+          <input type="text" id="faviconLogo" value="logo.png" readonly>
+          <small style="color: #64748b;">Located in: assets/images/</small>
+          
+          <div class="warning-section" style="margin-top: 1rem;">
+            <h4><i class="fas fa-info-circle"></i> Logo Update Instructions</h4>
+            <p>To update logos:</p>
+            <ol>
+              <li>Replace the logo files in <span class="file-path">assets/images/</span></li>
+              <li>Keep the same filenames for automatic updates</li>
+              <li>Use PNG format with transparent background</li>
+              <li>Recommended size: 200x200 pixels for logo.png</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="warning-section">
+          <h3><i class="fas fa-exclamation-triangle"></i> Important Notes</h3>
+          <ul>
+            <li>Always backup your files before making changes</li>
+            <li>Settings updates need to be applied to multiple HTML files</li>
+            <li>Test all social media links after updating</li>
+            <li>Update copyright year annually</li>
+            <li>Keep contact information current and accurate</li>
+            <li>Ensure social media accounts are active and monitored</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3><i class="fas fa-question-circle"></i> Quick Settings Checklist</h3>
+          <p>At the beginning of each term, update:</p>
+          <ul>
+            <li>☐ Term year in executive page header</li>
+            <li>☐ Contact email if changed</li>
+            <li>☐ Social media links if accounts changed</li>
+            <li>☐ Room number if club moved</li>
+            <li>☐ Copyright year in footer</li>
+            <li>☐ Current session information</li>
+          </ul>
+        </div>
+
+        <div class="steps-section">
+          <h3>Global Find & Replace Guide</h3>
+          <p>To update settings across all files quickly:</p>
+          <ol class="steps-list">
+            <li>Use a text editor that supports "Find in Files" (VS Code, Notepad++, etc.)</li>
+            <li>Open the entire website folder</li>
+            <li>Use Find & Replace to update all instances at once</li>
+            <li>Always preview changes before applying</li>
+            <li>Test the website after making changes</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function generateContactSettings() {
+      const email = document.getElementById('clubEmail').value;
+      const room = document.getElementById('clubRoom').value;
+      const university = document.getElementById('clubUniversity').value;
+      const phone = document.getElementById('clubPhone').value;
+      
+      let code = '<!-- Contact Information Updates -->\n\n';
+      
+      code += `<!-- Footer Contact Section -->\n`;
+      code += `<div class="footer-col">\n`;
+      code += `  <img src="assets/images/logo_white.png" alt="NSUCC Footer Logo" class="footer-logo">\n`;
+      code += `  <p>\n`;
+      code += `    NSU Communications Club<br>\n`;
+      code += `    ${room}, ${university}<br>\n`;
+      if (phone) code += `    ${phone}<br>\n`;
+      code += `    ${email}\n`;
+      code += `  </p>\n`;
+      code += `</div>\n\n`;
+      
+      document.getElementById('generatedSettingsText').value = code;
+      document.getElementById('generatedSettings').style.display = 'block';
+      document.getElementById('generatedSettings').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function generateSocialSettings() {
+      const facebook = document.getElementById('facebookUrl').value;
+      const instagram = document.getElementById('instagramUrl').value;
+      const linkedin = document.getElementById('linkedinUrl').value;
+      const twitter = document.getElementById('twitterUrl').value;
+      const youtube = document.getElementById('youtubeUrl').value;
+      
+      let code = '<!-- Social Media Links Updates -->\n\n';
+      
+      code += `<!-- Footer Social Links -->\n`;
+      code += `<div class="social-links">\n`;
+      if (facebook) code += `  <a href="${facebook}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>\n`;
+      if (instagram) code += `  <a href="${instagram}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>\n`;
+      if (linkedin) code += `  <a href="${linkedin}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>\n`;
+      if (twitter) code += `  <a href="${twitter}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>\n`;
+      if (youtube) code += `  <a href="${youtube}" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>\n`;
+      code += `</div>\n\n`;
+      
+      document.getElementById('generatedSettingsText').value = code;
+      document.getElementById('generatedSettings').style.display = 'block';
+      document.getElementById('generatedSettings').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function generateTermSettings() {
+      const year = document.getElementById('termYear').value;
+      const session = document.getElementById('currentSession').value;
+      
+      let code = '<!-- Term Information Updates -->\n\n';
+      
+      code += `<!-- Executive Page Hero Title -->\n`;
+      code += `<h1 class="hero-title">Executive Body (${year})</h1>\n\n`;
+      
+      code += `<!-- Current Session Reference -->\n`;
+      code += `<p class="session-info">Current Session: ${session} ${year.split('-')[0]}</p>\n\n`;
+      
+      document.getElementById('generatedSettingsText').value = code;
+      document.getElementById('generatedSettings').style.display = 'block';
+      document.getElementById('generatedSettings').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function generateCopyrightSettings() {
+      const year = document.getElementById('copyrightYear').value;
+      const orgName = document.getElementById('orgName').value;
+      const developer = document.getElementById('developerCredit').value;
+      
+      let code = '<!-- Copyright Footer Updates -->\n\n';
+      
+      code += `<!-- Footer Copyright Section -->\n`;
+      code += `<div class="footer-bottom">\n`;
+      code += `  <p>&copy; ${year} ${orgName} | ${developer}</p>\n`;
+      code += `</div>\n\n`;
+      
+      document.getElementById('generatedSettingsText').value = code;
+      document.getElementById('generatedSettings').style.display = 'block';
+      document.getElementById('generatedSettings').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copySettingsCode() {
+      const generatedCode = document.getElementById('generatedSettingsText');
+      generatedCode.select();
+      generatedCode.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(generatedCode.value);
+      
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#10b981';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '#dc143c';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
