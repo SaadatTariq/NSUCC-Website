@@ -23,6 +23,12 @@ function checkAuthentication() {
     // Session expired or doesn't exist
     localStorage.removeItem('nsucc_admin_session');
     localStorage.removeItem('nsucc_admin_expiry');
+    
+    // Redirect to login page if not authenticated
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 1000);
+    
     showUnauthorized();
     return;
   }

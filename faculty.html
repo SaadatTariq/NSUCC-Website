@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=\"UTF-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <title>Faculty Advisor | NSU Communications Club</title>
+  <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"assets/images/logo.png\">
+  <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"assets/images/logo.png\">
+  <link rel=\"shortcut icon\" href=\"assets/images/logo.png\">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+  <style>
+    /* Faculty Advisor Page Specific Styles */
+    .faculty-section {
+      padding: 80px 0;
+      background-color: var(--surface-color);
+    }
+
+    .faculty-content {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .faculty-card {
+      background: var(--background-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: sticky;
+      top: 120px;
+    }
+
+    .faculty-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+      border-color: var(--primary-color);
+    }
+
+    .photo-container {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      background: var(--primary-color);
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+      background: white;
+      transition: transform 0.4s ease;
+    }
+
+    .faculty-card:hover .photo-container img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .faculty-card h2 {
+      font-size: 1.8rem;
+      color: var(--text-color);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .faculty-card .position {
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .faculty-card .department {
+      color: var(--text-muted-color);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    /* Info Section */
+    .info-section {
+      background: var(--background-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
+    }
+
+    .info-section .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: var(--primary-color);
+    }
+
+    .info-text {
+      font-size: 1.1rem;
+      color: var(--text-muted-color);
+      line-height: 1.8;
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .info-card {
+      background: rgba(220, 20, 60, 0.05);
+      border: 1px solid rgba(220, 20, 60, 0.2);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      background: rgba(220, 20, 60, 0.1);
+      border-color: var(--primary-color);
+    }
+
+    .info-card h4 {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card p {
+      color: var(--text-muted-color);
+      line-height: 1.6;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-info a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--primary-hover-color);
+    }
+
+    /* Quote Section */
+    .quote-section {
+      background: rgba(220, 20, 60, 0.1);
+      border: 1px solid rgba(220, 20, 60, 0.2);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      margin: 40px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-section::before {
+      content: '"';
+      position: absolute;
+      top: -15px;
+      left: 30px;
+      font-size: 120px;
+      color: var(--primary-color);
+      opacity: 0.2;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    .quote-text {
+      font-size: 1.3rem;
+      color: var(--text-color);
+      font-style: italic;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      text-align: justify;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .faculty-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .faculty-card {
+        position: static;
+      }
+
+      .info-section {
+        padding: 30px 20px;
+      }
+
+      .quote-section {
+        padding: 30px 20px;
+      }
+
+      .quote-section::before {
+        font-size: 80px;
+        top: -10px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_white.png" alt="NSUCC Logo" />
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Panel</a>
+            <div class="dropdown-content">
+              <a href="executives.html">Executive Body</a>
+              <a href="subexecutives.html">Sub-Executive Body</a>
+              <a href="clubadvisor.html">Club Advisor</a>
+            </div>
+          </li>
+          <li><a href="faculty.html" class="active">Faculty Advisor</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Publications</a>
+            <div class="dropdown-content">
+              <a href="english-matters.html">English Matters</a>
+              <a href="echoes.html">Echoes</a>
+            </div>
+          </li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="recruitment.html">Join Us</a></li>
+        </ul>
+      </nav>
+      <button
+        class="mobile-nav-toggle"
+        id="mobile-nav-toggle"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title" data-aos="fade-down">
+          Faculty Advisor
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up">
+          Guiding NSU Communications Club with wisdom, integrity, and unwavering support for student excellence.
+        </p>
+      </div>
+    </section>
+
+    <section class="faculty-section">
+      <div class="faculty-content">
+        <!-- Faculty Card -->
+        <div class="faculty-card" data-aos="fade-right">
+          <div class="photo-container">
+            <img src="assets/images/Faculty/NasrinMiss.jpg" alt="Dr. Nasrin Pervin">
+          </div>
+          <div class="card-content">
+            <h2>Dr. Nasrin Pervin</h2>
+            <p class="position">Senior Lecturer<br>Full Time Faculty</p>
+            <p class="department">Department of English & Modern Languages<br>North South University</p>
+          </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section" data-aos="fade-left">
+          <h3 class="section-title">About Our Faculty Advisor</h3>
+          
+          <p style="text-align: justify;" class="info-text">Dr. Nasrin Pervin serves as the guiding force behind the NSU Communications Club, bringing her extensive expertise in education, development, and English language teaching to foster excellence in communication among our students. With her international academic background and dedication to student development, she provides invaluable mentorship to our club members.</p>
+
+          <div class="quote-section">
+            <p class="quote-text">Communication is not just about speaking; it's about connecting minds, inspiring hearts, and building bridges between diverse perspectives.</p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4><i class="fas fa-graduation-cap"></i> Education</h4>
+              <p><strong>PhD in Education and Development</strong><br>Universiti Teknologi Malaysia (UTM), Malaysia</p>
+              <p><strong>MSC in Educational Studies</strong><br>University of Glasgow, Scotland</p>
+              <p><strong>MA in English Language Teaching (ELT)</strong><br>Nottingham Trent University, Nottingham, UK</p>
+            </div>
+
+            <div class="info-card">
+              <h4><i class="fas fa-envelope"></i> Contact Information</h4>
+              <div class="contact-info">
+                <a href="mailto:nasrin.pervin@northsouth.edu">nasrin.pervin@northsouth.edu</a>
+                <p><strong>Office:</strong> NAC 943</p>
+                <p><strong>Department:</strong> English & Modern Languages</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <h4><i class="fas fa-heart"></i> Her Impact</h4>
+              <p>Dr. Pervin's dedication to education and development, combined with her extensive international academic experience, makes her an invaluable mentor. Her expertise in English language teaching and her commitment to student growth help shape confident, articulate leaders who are prepared to make meaningful contributions to society.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img
+            src="assets/images/logo_white.png"
+            alt="NSUCC Footer Logo"
+            class="footer-logo"
+          />
+          <p>
+            NSU Communications Club<br />Room #NAC121, North South
+            University<br />nsucommunicationsclub@gmail.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/NSUCommunicationsClub"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/nsucommunicationsclub/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://linkedin.com/company/nsucc"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

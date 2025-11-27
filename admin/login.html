@@ -271,18 +271,28 @@
             // Simulate authentication delay
             setTimeout(() => {
                 if (validateCredentials(username, password)) {
-                    // Store authentication
-                    sessionStorage.setItem('nsucc_admin_auth', 'true');
-                    sessionStorage.setItem('nsucc_admin_user', username);
-                    sessionStorage.setItem('nsucc_admin_time', Date.now());
+                    // Store authentication tokens
+                    const sessionToken = generateSessionToken();
+                    const expiryTime = Date.now() + (4 * 60 * 60 * 1000); // 4 hours
+                    
+                    localStorage.setItem('nsucc_admin_session', sessionToken);
+                    localStorage.setItem('nsucc_admin_expiry', expiryTime.toString());
+                    localStorage.setItem('nsucc_admin_last_login', Date.now().toString());
+                    
+                    // Clean up old session storage
+                    sessionStorage.removeItem('nsucc_admin_auth');
+                    sessionStorage.removeItem('nsucc_admin_user');
+                    sessionStorage.removeItem('nsucc_admin_time');
 
                     // Success feedback
-                    loginBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+                    loginBtn.innerHTML = '<i class="fas fa-check"></i> Login Successful!';
                     loginBtn.style.background = '#10b981';
+                    
+                    showMessage('Login successful! Redirecting to admin panel...', 'success');
 
                     // Redirect to admin panel
                     setTimeout(() => {
-                        window.location.href = 'dashboard.html';
+                        window.location.href = 'index.html';
                     }, 1000);
                 } else {
                     // Show error
@@ -295,6 +305,11 @@
         function validateCredentials(username, password) {
             return username === DEFAULT_CREDENTIALS.username && 
                    password === DEFAULT_CREDENTIALS.password;
+        }
+
+        // Generate session token
+        function generateSessionToken() {
+            return 'nsucc_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
         }
 
         function showLoading() {
@@ -321,20 +336,21 @@
         }
 
         // Check if already logged in
-        if (sessionStorage.getItem('nsucc_admin_auth') === 'true') {
-            const loginTime = parseInt(sessionStorage.getItem('nsucc_admin_time'));
-            const currentTime = Date.now();
-            const sessionDuration = 4 * 60 * 60 * 1000; // 4 hours
-
-            if (currentTime - loginTime < sessionDuration) {
-                window.location.href = 'dashboard.html';
-            } else {
-                // Session expired
-                sessionStorage.removeItem('nsucc_admin_auth');
-                sessionStorage.removeItem('nsucc_admin_user');
-                sessionStorage.removeItem('nsucc_admin_time');
-            }
+        const sessionToken = localStorage.getItem('nsucc_admin_session');
+        const sessionExpiry = localStorage.getItem('nsucc_admin_expiry');
+        
+        if (sessionToken && sessionExpiry && new Date().getTime() < parseInt(sessionExpiry)) {
+            // Already logged in, redirect to dashboard
+            showMessage('Already logged in, redirecting...', 'success');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
         }
+        
+        // Clean up any old session storage
+        sessionStorage.removeItem('nsucc_admin_auth');
+        sessionStorage.removeItem('nsucc_admin_user');
+        sessionStorage.removeItem('nsucc_admin_time');
 
         // Add shake animation
         const style = document.createElement('style');
