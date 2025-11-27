@@ -20,6 +20,60 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // 2. Mobile Dropdown Toggle
+  const dropdowns = document.querySelectorAll('.dropdown > a');
+  
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', function(e) {
+      // Only prevent default on mobile
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const dropdownParent = this.parentElement;
+        
+        // Close other dropdowns
+        document.querySelectorAll('.dropdown').forEach(d => {
+          if (d !== dropdownParent) {
+            d.classList.remove('active');
+          }
+        });
+        
+        // Toggle current dropdown
+        dropdownParent.classList.toggle('active');
+      }
+    });
+  });
+
+  // Close mobile menu when clicking outside or on a regular link
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+      // If clicking outside nav or on a non-dropdown link
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('active');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+        
+        // Close all dropdowns
+        document.querySelectorAll('.dropdown').forEach(d => {
+          d.classList.remove('active');
+        });
+      } else if (e.target.tagName === 'A' && !e.target.parentElement.classList.contains('dropdown')) {
+        // Clicking on a regular nav link (not dropdown parent)
+        navLinks.classList.remove('active');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+      }
+    }
+  });
+
+  // Reset dropdown states on window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      document.querySelectorAll('.dropdown').forEach(d => {
+        d.classList.remove('active');
+      });
+    }
+  });
+
   // 2. Animate on Scroll (AOS) Initialization
   AOS.init({
       duration: 800, // values from 0 to 3000, with step 50ms
