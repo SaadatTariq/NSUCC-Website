@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSUCC Admin Login</title>
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #dc143c;
+            --primary-hover-color: #b91c3c;
+            --background-color: #ffffff;
+            --surface-color: #f8fafc;
+            --text-color: #1e293b;
+            --text-muted-color: #64748b;
+            --border-color: #e2e8f0;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .login-container {
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+            padding: 3rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-header {
+            margin-bottom: 2rem;
+        }
+
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            color: var(--text-muted-color);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--surface-color);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: var(--background-color);
+            box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+        }
+
+        .password-input-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted-color);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .login-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.875rem 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .login-btn:hover {
+            background: var(--primary-hover-color);
+            transform: translateY(-2px);
+        }
+
+        .login-btn:disabled {
+            background: var(--border-color);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .credentials-info {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted-color);
+        }
+
+        .credentials-info h4 {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .loading-spinner {
+            display: none;
+            margin-right: 0.5rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="../assets/images/logo.png" alt="NSUCC Logo" class="login-logo">
+            <h1 class="login-title">Admin Login</h1>
+            <p class="login-subtitle">Access NSUCC Website Management</p>
+        </div>
+
+        <div class="error-message" id="error-message">
+            Invalid username or password. Please try again.
+        </div>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" class="form-input" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <div class="password-input-container">
+                    <input type="password" id="password" class="form-input" required autocomplete="current-password">
+                    <button type="button" class="password-toggle" id="password-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn" id="login-btn">
+                <i class="loading-spinner fas fa-spinner" id="loading-spinner"></i>
+                Sign In
+            </button>
+        </form>
+
+        <div class="credentials-info">
+            <h4><i class="fas fa-info-circle"></i> Default Credentials</h4>
+            <p><strong>Username:</strong> admin</p>
+            <p><strong>Password:</strong> nsucc2025</p>
+            <p><em>Change these credentials after first login</em></p>
+        </div>
+    </div>
+
+    <script>
+        // Default credentials
+        const DEFAULT_CREDENTIALS = {
+            username: 'admin',
+            password: 'nsucc2025'
+        };
+
+        // DOM elements
+        const loginForm = document.getElementById('login-form');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const passwordToggle = document.getElementById('password-toggle');
+        const loginBtn = document.getElementById('login-btn');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const errorMessage = document.getElementById('error-message');
+
+        // Password visibility toggle
+        passwordToggle.addEventListener('click', function() {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        });
+
+        // Form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleLogin();
+        });
+
+        function handleLogin() {
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            // Hide error message
+            errorMessage.style.display = 'none';
+
+            // Show loading state
+            showLoading();
+
+            // Simulate authentication delay
+            setTimeout(() => {
+                if (validateCredentials(username, password)) {
+                    // Store authentication
+                    sessionStorage.setItem('nsucc_admin_auth', 'true');
+                    sessionStorage.setItem('nsucc_admin_user', username);
+                    sessionStorage.setItem('nsucc_admin_time', Date.now());
+
+                    // Success feedback
+                    loginBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+                    loginBtn.style.background = '#10b981';
+
+                    // Redirect to admin panel
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                } else {
+                    // Show error
+                    hideLoading();
+                    showError();
+                }
+            }, 1500);
+        }
+
+        function validateCredentials(username, password) {
+            return username === DEFAULT_CREDENTIALS.username && 
+                   password === DEFAULT_CREDENTIALS.password;
+        }
+
+        function showLoading() {
+            loginBtn.disabled = true;
+            loadingSpinner.style.display = 'inline-block';
+            loginBtn.innerHTML = '<i class="loading-spinner fas fa-spinner"></i> Signing in...';
+        }
+
+        function hideLoading() {
+            loginBtn.disabled = false;
+            loadingSpinner.style.display = 'none';
+            loginBtn.innerHTML = 'Sign In';
+        }
+
+        function showError() {
+            errorMessage.style.display = 'block';
+            usernameInput.focus();
+            
+            // Shake animation
+            loginForm.style.animation = 'shake 0.6s ease-in-out';
+            setTimeout(() => {
+                loginForm.style.animation = '';
+            }, 600);
+        }
+
+        // Check if already logged in
+        if (sessionStorage.getItem('nsucc_admin_auth') === 'true') {
+            const loginTime = parseInt(sessionStorage.getItem('nsucc_admin_time'));
+            const currentTime = Date.now();
+            const sessionDuration = 4 * 60 * 60 * 1000; // 4 hours
+
+            if (currentTime - loginTime < sessionDuration) {
+                window.location.href = 'dashboard.html';
+            } else {
+                // Session expired
+                sessionStorage.removeItem('nsucc_admin_auth');
+                sessionStorage.removeItem('nsucc_admin_user');
+                sessionStorage.removeItem('nsucc_admin_time');
+            }
+        }
+
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
