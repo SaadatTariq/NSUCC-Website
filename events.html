@@ -48,9 +48,10 @@
 
     .events-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
       margin-bottom: 60px;
+      align-items: start;
     }
 
     .event-card {
@@ -60,7 +61,7 @@
       overflow: hidden;
       transition: all 0.4s ease;
       position: relative;
-      height: 650px;
+      min-height: 650px;
       display: flex;
       flex-direction: column;
     }
@@ -73,22 +74,22 @@
 
     .event-image {
       width: 100%;
-      height: 250px;
+      height: 280px;
       overflow: hidden;
       position: relative;
-      background-color: white;
+      background-color: #f8f9fa;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-bottom: 1px solid var(--border-color);
     }
 
     .event-image img {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 85%;
+      max-height: 85%;
       object-fit: contain;
-      background-color: white;
-      padding: 10px;
       transition: transform 0.4s ease;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
     }
 
     .event-card:hover .event-image img {
@@ -166,10 +167,55 @@
       font-weight: bold;
     }
 
+    /* Category Sections */
+    .category-section {
+      margin-bottom: 80px;
+    }
+
+    .category-title {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: 600;
+    }
+
+    .category-title i {
+      font-size: 1.8rem;
+    }
+
+    .category-description {
+      color: var(--text-muted-color);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 800px;
+      text-align: justify;
+    }
+
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
       .events-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      
+      .event-card {
+        min-height: auto;
+      }
+      
+      .event-image {
+        height: 220px;
+      }
+      
+      .event-content {
+        padding: 25px 20px;
+      }
+      
+      .event-title {
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -193,7 +239,19 @@
             </div>
           </li>
           <li><a href="faculty.html">Faculty Advisor</a></li>
-          <li><a href="events.html" class="active">Events</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="active">Events</a>
+            <div class="dropdown-content">
+              <a href="events.html" class="active">All Events</a>
+              <a href="wordshop.html">Wordshop</a>
+              <a href="job-column.html">Job Column</a>
+              <a href="vocal-project.html">The Vocal Project</a>
+              <a href="communicado.html">Communicado</a>
+              <a href="amplify.html">Amplify</a>
+              <a href="final-whistle.html">The Final Whistle</a>
+              <a href="hear2speak.html">Hear2Speak</a>
+            </div>
+          </li>
           <li class="dropdown">
             <a href="javascript:void(0)">Publications</a>
             <div class="dropdown-content">
@@ -230,11 +288,302 @@
     <section class="events-section">
       <div class="events-container">
         <div class="events-intro" data-aos="fade-up">
-          <h2 class="section-title">Current & Upcoming Events</h2>
+          <h2 class="section-title">Our Events</h2>
           <p>Join us in our journey of communication excellence through engaging events, skill-building workshops, and networking opportunities that connect students with industry professionals and fellow communication enthusiasts.</p>
         </div>
 
-        <div class="events-grid">
+        <!-- Career Development Events -->
+        <div class="category-section" data-aos="fade-up">
+          <h3 class="category-title"><i class="fas fa-briefcase"></i> Career Development Events</h3>
+          <p class="category-description">Professional growth opportunities, job fairs, and career development initiatives designed to launch your career.</p>
+          
+          <div class="events-grid">
+            <!-- Job Column Event -->
+            <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="event-image">
+                <img src="assets/images/event_logo/JC.jpg" alt="Job Column Event">
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">Job Column</h3>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>2025</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Season 4 - Flagship Event</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-handshake"></i>
+                    <span>Title Sponsor: Pubali Bank Ltd.</span>
+                  </div>
+                </div>
+                <p class="event-description">
+                  Job Column is NSUCC's flagship annual career development initiative, designed to bridge the gap between student potential and professional opportunity. Season 4 expanded into a comprehensive career seminar and job fair, featuring distinguished speakers and recruitment partners.
+                </p>
+                <div class="event-highlights">
+                  <h4>Season 4 Highlights:</h4>
+                  <ul class="highlights-list">
+                    <li>Theme: "Navigating the Job Market of Bangladesh"</li>
+                    <li>Recruitment Partners: Augmedix, UNDP Bangladesh, Yeamazing, Greenbud</li>
+                    <li>Distinguished Speakers from UNDP Bangladesh & NSU CPC</li>
+                    <li>Full-day Career Seminar + Interactive Job Fair</li>
+                    <li>Direct Employment Opportunities for NSU Students</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Communication Competitions -->
+        <div class="category-section" data-aos="fade-up">
+          <h3 class="category-title"><i class="fas fa-trophy"></i> Communication Competitions</h3>
+          <p class="category-description">Competitive platforms to showcase communication skills, public speaking abilities, and creative expression.</p>
+          
+          <div class="events-grid">
+            <!-- Hear2Speak Event -->
+            <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="event-image">
+                <img src="assets/images/event_logo/H2S.png" alt="Hear2Speak Event">
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">Hear2Speak</h3>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Next Edition: TBA</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span>Open to All Students</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Flagship Competition</span>
+                  </div>
+                </div>
+                <p class="event-description">
+                  Our flagship public speaking and communication competition designed to empower students to find their voice and express their ideas with confidence. Hear2Speak provides a platform for students to showcase their oratory skills and engage in meaningful dialogue.
+                </p>
+                <div class="event-highlights">
+                  <h4>What to Expect:</h4>
+                  <ul class="highlights-list">
+                    <li>Multiple Speaking Categories</li>
+                    <li>Professional Judging Panel</li>
+                    <li>Skill Development Workshops</li>
+                    <li>Networking with Communication Experts</li>
+                    <li>Attractive Prizes and Recognition</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Communicado Event -->
+            <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="event-image">
+                <img src="assets/images/event_logo/Communicado.png" alt="Communicado Event">
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">Communicado</h3>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>2023</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Best Communicator Title</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Business Case Competition</span>
+                  </div>
+                </div>
+                <p class="event-description">
+                  Communicado is an inter-university business communication case competition where students present innovative ideas to improve brand communication strategies. Winners receive prize money and exciting gifts while competing for the prestigious "Best Communicator" title.
+                </p>
+                <div class="event-highlights">
+                  <h4>Competition Features:</h4>
+                  <ul class="highlights-list">
+                    <li>Brand Communication Strategy Presentations</li>
+                    <li>Inter-University Competition Format</li>
+                    <li>Prize Money & Exciting Gifts for Winners</li>
+                    <li>Presented by Energypac Electronics</li>
+                    <li>Co-Sponsored by Global Brand Pvt Ltd. & LeatherX</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Amplify Event -->
+            <div class="event-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="event-image">
+                <img src="assets/images/event_logo/Amplify.png" alt="Amplify Event">
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">Amplify</h3>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>2025</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-microphone"></i>
+                    <span>Creative Expression Showcase</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Season 1 Completed</span>
+                  </div>
+                </div>
+                <p class="event-description">
+                  Amplify is NSUCC's creative communication initiative celebrating the power of voice, storytelling, and authentic self-expression. This platform provides students opportunities to explore public speaking and creative writing in a competitive yet supportive environment.
+                </p>
+                <div class="event-highlights">
+                  <h4>Season 1 Features:</h4>
+                  <ul class="highlights-list">
+                    <li>Online Preliminary Screening Process</li>
+                    <li>On-Campus Grand Finale Event</li>
+                    <li>Original Speeches & Written Pieces</li>
+                    <li>Themes: Identity, Resilience & Personal Narrative</li>
+                    <li>Structured Judging & Quality Standards</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- The Vocal Project -->
+            <div class="event-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="event-image">
+                <img src="assets/images/event_logo/TVP.png" alt="The Vocal Project Event">
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">The Vocal Project (TVP)</h3>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>2024</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-microphone"></i>
+                    <span>Biannual to Triannual Event</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span>Intra-University Competition</span>
+                  </div>
+                </div>
+                <p class="event-description">
+                  The Vocal Project is a biannual to triannual intra-university public speaking competition and student development program. This semi-impromptu competition encourages NSU students to explore and practice their speaking skills in a supportive, low-pressure environment.
+                </p>
+                <div class="event-highlights">
+                  <h4>Event Format:</h4>
+                  <ul class="highlights-list">
+                    <li>Random Topic Selection & 2-Minute Speeches</li>
+                    <li>1-2 Minutes Brainstorming Time</li>
+                    <li>Judge's Choice & Popular Choice Winners</li>
+                    <li>Effective Public Speaking Advisory Sessions</li>
+                    <li>Prizes: Books, Certificates & Sponsor Gifts (Kangaroo)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Workshops -->
+        <div class="category-section" data-aos="fade-up">
+          <h3 class="category-title"><i class="fas fa-graduation-cap"></i> Educational Workshops</h3>
+          <p class="category-description">Skill-building sessions and educational workshops to transform your creative passions into professional opportunities.</p>
+          
+          <div class="events-grid">
+            <!-- Wordshop Event -->
+            <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="event-image">
+                <img src="assets/images/event_logo/Wordshop.png" alt="Wordshop Event">
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">Wordshop</h3>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>2024</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Interactive Workshop</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-star"></i>
+                    <span>6 Successful Iterations</span>
+                  </div>
+                </div>
+                <p class="event-description">
+                  Wordshop is an annual interactive event that educates its audience on turning creative inspiration into ambition. This workshop-based session provides insights on transforming hobbies or passions into careers, connecting NSU students with industry experts.
+                </p>
+                <div class="event-highlights">
+                  <h4>Past Workshop Topics:</h4>
+                  <ul class="highlights-list">
+                    <li>Fiction Writing (NSU EML Faculty)</li>
+                    <li>Poetry (The Versemongers)</li>
+                    <li>Journalism & Cartooning (Colours Magazine)</li>
+                    <li>Teaching (Teach for Bangladesh)</li>
+                    <li>Content Creation (Sadman Sadik, Enayet Chowdhury)</li>
+                    <li>Startups (Shikho & Pathao Co-founders)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recreation Events -->
+        <div class="category-section" data-aos="fade-up">
+          <h3 class="category-title"><i class="fas fa-futbol"></i> Recreation Events</h3>
+          <p class="category-description">Fun and engaging recreational activities that strengthen bonds within our communication community.</p>
+          
+          <div class="events-grid">
+            <!-- The Final Whistle Event -->
+            <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="event-image">
+                <img src="assets/images/event_logo/The Final Whistle.png" alt="The Final Whistle Event">
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">The Final Whistle</h3>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>2025</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-futbol"></i>
+                    <span>Intra-Club Tournament</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>First Ever Edition</span>
+                  </div>
+                </div>
+                <p class="event-description">
+                  The Final Whistle marked NSUCC's first ever intra-club football tournament, bringing together club members in friendly competition and team building. This inaugural sporting event strengthened bonds within our communication community while promoting recreational activities.
+                </p>
+                <div class="event-highlights">
+                  <h4>Tournament Features:</h4>
+                  <ul class="highlights-list">
+                    <li>First Ever NSUCC Football Tournament</li>
+                    <li>Intra-Club Competition Format</li>
+                    <li>Team Building & Community Bonding</li>
+                    <li>Sponsored by ICCB</li>
+                    <li>Recreational Sports Initiative</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
           <!-- Job Column Event -->
           <div class="event-card" data-aos="fade-up" data-aos-delay="100">
             <div class="event-image">

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communicado | NSU Communications Club</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo.png">
+  <link rel="shortcut icon" href="assets/images/logo.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Event Detail Page Styles */
+    .event-detail-section {
+      padding: 80px 0;
+      background-color: var(--background-color);
+    }
+
+    .event-detail-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .event-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .event-image-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: sticky;
+      top: 120px;
+    }
+
+    .event-logo-container {
+      height: 400px;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .event-logo-container img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    }
+
+    .event-meta-card {
+      padding: 30px;
+    }
+
+    .event-meta-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-muted-color);
+    }
+
+    .meta-item i {
+      color: var(--primary-color);
+      width: 20px;
+    }
+
+    .event-content-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 40px;
+    }
+
+    .event-title {
+      font-size: 2.5rem;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .event-subtitle {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .event-description {
+      color: var(--text-muted-color);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .event-section {
+      margin-bottom: 40px;
+    }
+
+    .event-section h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlights-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlights-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      color: var(--text-muted-color);
+      line-height: 1.6;
+    }
+
+    .highlights-list li::before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .event-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .event-image-section {
+        position: static;
+      }
+
+      .event-logo-container {
+        height: 300px;
+      }
+
+      .event-content-section {
+        padding: 30px 20px;
+      }
+
+      .event-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_white.png" alt="NSUCC Logo" />
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Panel</a>
+            <div class="dropdown-content">
+              <a href="executives.html">Executive Body</a>
+              <a href="subexecutives.html">Sub-Executive Body</a>
+              <a href="clubadvisor.html">Club Advisor</a>
+            </div>
+          </li>
+          <li><a href="faculty.html">Faculty Advisor</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="active">Events</a>
+            <div class="dropdown-content">
+              <a href="events.html">All Events</a>
+              <a href="wordshop.html">Wordshop</a>
+              <a href="job-column.html">Job Column</a>
+              <a href="vocal-project.html">The Vocal Project</a>
+              <a href="communicado.html" class="active">Communicado</a>
+              <a href="amplify.html">Amplify</a>
+              <a href="final-whistle.html">The Final Whistle</a>
+              <a href="hear2speak.html">Hear2Speak</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Publications</a>
+            <div class="dropdown-content">
+              <a href="english-matters.html">English Matters</a>
+              <a href="echoes.html">Echoes</a>
+            </div>
+          </li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="recruitment.html">Join Us</a></li>
+        </ul>
+      </nav>
+      <button
+        class="mobile-nav-toggle"
+        id="mobile-nav-toggle"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title" data-aos="fade-down">
+          Communicado
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up">
+          The Ultimate Inter-University Communication Championship
+        </p>
+      </div>
+    </section>
+
+    <section class="event-detail-section">
+      <div class="event-detail-container">
+        <div class="event-detail-grid">
+          <!-- Event Image Section -->
+          <div class="event-image-section" data-aos="fade-right">
+            <div class="event-logo-container">
+              <img src="assets/images/event_logo/Communicado.png" alt="Communicado Event Logo">
+            </div>
+            <div class="event-meta-card">
+              <div class="event-meta-grid">
+                <div class="meta-item">
+                  <i class="fas fa-trophy"></i>
+                  <span>Championship Tournament</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-university"></i>
+                  <span>15+ Universities</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-users"></i>
+                  <span>200+ Participants</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-medal"></i>
+                  <span>BDT 50,000+ Prize Pool</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>Annual Flagship Event</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Content Section -->
+          <div class="event-content-section" data-aos="fade-left">
+            <h2 class="event-title">Communicado</h2>
+            <p class="event-subtitle">Inter-University Communication Championship</p>
+            
+            <p class="event-description">
+              Communicado stands as Bangladesh's premier inter-university communication competition, bringing together the finest speakers, debaters, and communicators from across the nation's leading universities. This flagship event represents the pinnacle of academic communication excellence, featuring multiple competition categories and offering the largest prize pool in the country's university communication circuit.
+            </p>
+
+            <div class="event-section">
+              <h3><i class="fas fa-gamepad"></i> Competition Categories</h3>
+              <ul class="highlights-list">
+                <li><strong>Debate Championship</strong> - British Parliamentary & Asian Parliamentary formats</li>
+                <li><strong>Public Speaking</strong> - Impromptu and prepared speech competitions</li>
+                <li><strong>Model United Nations (MUN)</strong> - Diplomatic simulation sessions</li>
+                <li><strong>Creative Writing</strong> - Poetry, short stories, and essay competitions</li>
+                <li><strong>Presentation Competition</strong> - Business case studies and project presentations</li>
+                <li><strong>Quiz Competition</strong> - General knowledge and current affairs</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-university"></i> Participating Universities</h3>
+              <ul class="highlights-list">
+                <li>North South University (NSU) - Host University</li>
+                <li>BRAC University</li>
+                <li>Independent University Bangladesh (IUB)</li>
+                <li>American International University-Bangladesh (AIUB)</li>
+                <li>East West University</li>
+                <li>United International University (UIU)</li>
+                <li>University of Dhaka</li>
+                <li>Bangladesh University of Engineering & Technology (BUET)</li>
+                <li>Daffodil International University</li>
+                <li>Southeast University</li>
+                <li>Stamford University Bangladesh</li>
+                <li>University of Liberal Arts Bangladesh (ULAB)</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-award"></i> Championship Awards</h3>
+              <ul class="highlights-list">
+                <li><strong>Overall Champion University</strong> - Champion Trophy + BDT 30,000</li>
+                <li><strong>Runner-up University</strong> - Runner-up Trophy + BDT 20,000</li>
+                <li><strong>Individual Category Winners</strong> - BDT 5,000 each + Trophies</li>
+                <li><strong>Individual Category Runners-up</strong> - BDT 3,000 each + Medals</li>
+                <li><strong>Best Speaker Awards</strong> - Special Recognition + BDT 2,000</li>
+                <li><strong>Participation Certificates</strong> - All registered participants</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-users-tie"></i> Esteemed Judges Panel</h3>
+              <ul class="highlights-list">
+                <li>Senior University Faculty from Communications & English Departments</li>
+                <li>Media Industry Professionals and Journalists</li>
+                <li>Corporate Communication Executives</li>
+                <li>Diplomats and International Relations Experts</li>
+                <li>Professional Debate Coaches and Trainers</li>
+                <li>Alumni Champions from Previous Competitions</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-clock"></i> Competition Format & Timeline</h3>
+              <ul class="highlights-list">
+                <li><strong>Day 1:</strong> Registration, Opening Ceremony, Preliminary Rounds</li>
+                <li><strong>Day 2:</strong> Quarter Finals, Semi Finals for all categories</li>
+                <li><strong>Day 3:</strong> Final Rounds, Championship Decisions</li>
+                <li><strong>Evening:</strong> Cultural Program, Award Ceremony, Closing</li>
+                <li><strong>Format:</strong> Knockout system with cumulative university scoring</li>
+                <li><strong>Duration:</strong> 3-day intensive competition weekend</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-handshake"></i> Networking & Benefits</h3>
+              <ul class="highlights-list">
+                <li>Inter-university networking opportunities with top communicators</li>
+                <li>Exposure to media coverage and social media promotion</li>
+                <li>Professional development workshops during breaks</li>
+                <li>Mentorship opportunities with industry professionals</li>
+                <li>Scholarship recommendations for outstanding performers</li>
+                <li>Alumni network access for future career opportunities</li>
+                <li>International competition recommendations for winners</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-registration"></i> Registration Process</h3>
+              <ul class="highlights-list">
+                <li>University team registration through official communication clubs</li>
+                <li>Individual category registrations open to all students</li>
+                <li>Early bird registration discounts available</li>
+                <li>Registration includes meals, certificates, and competition materials</li>
+                <li>Limited slots available - first come, first served basis</li>
+                <li>Registration deadline: 2 weeks before competition date</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img
+            src="assets/images/logo_white.png"
+            alt="NSUCC Footer Logo"
+            class="footer-logo"
+          />
+          <p>
+            NSU Communications Club<br />Room #NAC121, North South
+            University<br />nsucommunicationsclub@gmail.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/NSUCommunicationsClub"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/nsucommunicationsclub/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://linkedin.com/company/nsucc"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

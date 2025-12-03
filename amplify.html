@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amplify | NSU Communications Club</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo.png">
+  <link rel="shortcut icon" href="assets/images/logo.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Event Detail Page Styles */
+    .event-detail-section {
+      padding: 80px 0;
+      background-color: var(--background-color);
+    }
+
+    .event-detail-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .event-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .event-image-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: sticky;
+      top: 120px;
+    }
+
+    .event-logo-container {
+      height: 400px;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .event-logo-container img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    }
+
+    .event-meta-card {
+      padding: 30px;
+    }
+
+    .event-meta-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-muted-color);
+    }
+
+    .meta-item i {
+      color: var(--primary-color);
+      width: 20px;
+    }
+
+    .event-content-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 40px;
+    }
+
+    .event-title {
+      font-size: 2.5rem;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .event-subtitle {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .event-description {
+      color: var(--text-muted-color);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .event-section {
+      margin-bottom: 40px;
+    }
+
+    .event-section h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlights-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlights-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      color: var(--text-muted-color);
+      line-height: 1.6;
+    }
+
+    .highlights-list li::before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .event-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .event-image-section {
+        position: static;
+      }
+
+      .event-logo-container {
+        height: 300px;
+      }
+
+      .event-content-section {
+        padding: 30px 20px;
+      }
+
+      .event-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_white.png" alt="NSUCC Logo" />
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Panel</a>
+            <div class="dropdown-content">
+              <a href="executives.html">Executive Body</a>
+              <a href="subexecutives.html">Sub-Executive Body</a>
+              <a href="clubadvisor.html">Club Advisor</a>
+            </div>
+          </li>
+          <li><a href="faculty.html">Faculty Advisor</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="active">Events</a>
+            <div class="dropdown-content">
+              <a href="events.html">All Events</a>
+              <a href="wordshop.html">Wordshop</a>
+              <a href="job-column.html">Job Column</a>
+              <a href="vocal-project.html">The Vocal Project</a>
+              <a href="communicado.html">Communicado</a>
+              <a href="amplify.html" class="active">Amplify</a>
+              <a href="final-whistle.html">The Final Whistle</a>
+              <a href="hear2speak.html">Hear2Speak</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Publications</a>
+            <div class="dropdown-content">
+              <a href="english-matters.html">English Matters</a>
+              <a href="echoes.html">Echoes</a>
+            </div>
+          </li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="recruitment.html">Join Us</a></li>
+        </ul>
+      </nav>
+      <button
+        class="mobile-nav-toggle"
+        id="mobile-nav-toggle"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title" data-aos="fade-down">
+          Amplify
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up">
+          Elevating Voices, Empowering Stories, Inspiring Change
+        </p>
+      </div>
+    </section>
+
+    <section class="event-detail-section">
+      <div class="event-detail-container">
+        <div class="event-detail-grid">
+          <!-- Event Image Section -->
+          <div class="event-image-section" data-aos="fade-right">
+            <div class="event-logo-container">
+              <img src="assets/images/event_logo/Amplify.png" alt="Amplify Event Logo">
+            </div>
+            <div class="event-meta-card">
+              <div class="event-meta-grid">
+                <div class="meta-item">
+                  <i class="fas fa-bullhorn"></i>
+                  <span>Voice Amplification Platform</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-heart"></i>
+                  <span>Social Impact Initiative</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-users"></i>
+                  <span>Community Driven</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-globe"></i>
+                  <span>Social Change Movement</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-calendar"></i>
+                  <span>Bi-Annual Event Series</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Content Section -->
+          <div class="event-content-section" data-aos="fade-left">
+            <h2 class="event-title">Amplify</h2>
+            <p class="event-subtitle">Social Impact Communication Series</p>
+            
+            <p class="event-description">
+              Amplify is NSUCC's transformative social impact initiative that provides a platform for voices that need to be heard, stories that deserve to be told, and causes that require urgent attention. This unique event series focuses on leveraging the power of communication to drive positive social change, raise awareness about critical issues, and empower communities through strategic storytelling and advocacy.
+            </p>
+
+            <div class="event-section">
+              <h3><i class="fas fa-heart"></i> Mission & Vision</h3>
+              <ul class="highlights-list">
+                <li><strong>Amplify Marginalized Voices</strong> - Provide platform for underrepresented communities</li>
+                <li><strong>Raise Social Awareness</strong> - Highlight critical social issues through storytelling</li>
+                <li><strong>Drive Positive Change</strong> - Transform awareness into actionable social impact</li>
+                <li><strong>Build Empathy</strong> - Create understanding through shared human experiences</li>
+                <li><strong>Empower Communities</strong> - Provide tools and skills for self-advocacy</li>
+                <li><strong>Create Sustainable Impact</strong> - Develop long-term solutions for social challenges</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-globe"></i> Focus Areas & Themes</h3>
+              <ul class="highlights-list">
+                <li><strong>Mental Health Awareness</strong> - Breaking stigma through personal narratives</li>
+                <li><strong>Environmental Justice</strong> - Climate change impact on vulnerable communities</li>
+                <li><strong>Gender Equality</strong> - Women's rights and empowerment stories</li>
+                <li><strong>Education Access</strong> - Bridging the education gap for underprivileged children</li>
+                <li><strong>Youth Empowerment</strong> - Creating opportunities for young changemakers</li>
+                <li><strong>Social Justice</strong> - Human rights advocacy and awareness campaigns</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-microphone"></i> Event Formats</h3>
+              <ul class="highlights-list">
+                <li><strong>StorySlams</strong> - Personal narrative sharing sessions</li>
+                <li><strong>Panel Discussions</strong> - Expert conversations on social issues</li>
+                <li><strong>Documentary Screenings</strong> - Film presentations followed by discussions</li>
+                <li><strong>Community Workshops</strong> - Skill-building sessions for advocacy</li>
+                <li><strong>Art & Expression</strong> - Creative showcases for social messages</li>
+                <li><strong>Policy Dialogues</strong> - Conversations with policymakers and activists</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-handshake"></i> Community Partners</h3>
+              <ul class="highlights-list">
+                <li><strong>Local NGOs</strong> - Grassroots organizations working on social issues</li>
+                <li><strong>Advocacy Groups</strong> - Human rights and social justice organizations</li>
+                <li><strong>Mental Health Organizations</strong> - Professional counseling and support services</li>
+                <li><strong>Educational Institutions</strong> - Schools and community learning centers</li>
+                <li><strong>Healthcare Providers</strong> - Medical professionals and health organizations</li>
+                <li><strong>Government Agencies</strong> - Policy makers and public service departments</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-chart-line"></i> Impact Metrics</h3>
+              <ul class="highlights-list">
+                <li>Reached over 10,000+ community members through events and campaigns</li>
+                <li>Collaborated with 25+ local and international organizations</li>
+                <li>Launched 5 ongoing community support initiatives</li>
+                <li>Trained 200+ young advocates in communication and activism</li>
+                <li>Generated media coverage reaching 100,000+ people</li>
+                <li>Secured funding for 3 community development projects</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-users-cog"></i> How to Get Involved</h3>
+              <ul class="highlights-list">
+                <li><strong>Story Sharing</strong> - Share your personal journey or community experience</li>
+                <li><strong>Volunteer</strong> - Support event organization and community outreach</li>
+                <li><strong>Advocate</strong> - Become a voice for causes you're passionate about</li>
+                <li><strong>Mentor</strong> - Guide newcomers in advocacy and communication skills</li>
+                <li><strong>Partner</strong> - Collaborate as an organization or institution</li>
+                <li><strong>Donate</strong> - Support our social impact initiatives financially</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-rocket"></i> Upcoming Initiatives</h3>
+              <ul class="highlights-list">
+                <li><strong>Mental Health Week</strong> - Campus-wide awareness and support campaign</li>
+                <li><strong>Climate Action Summit</strong> - Youth-led environmental advocacy event</li>
+                <li><strong>Women's Stories</strong> - International Women's Day celebration</li>
+                <li><strong>Education for All</strong> - Scholarship and mentorship program launch</li>
+                <li><strong>Community Voice Festival</strong> - Multi-day social impact showcase</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img
+            src="assets/images/logo_white.png"
+            alt="NSUCC Footer Logo"
+            class="footer-logo"
+          />
+          <p>
+            NSU Communications Club<br />Room #NAC121, North South
+            University<br />nsucommunicationsclub@gmail.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/NSUCommunicationsClub"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/nsucommunicationsclub/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://linkedin.com/company/nsucc"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

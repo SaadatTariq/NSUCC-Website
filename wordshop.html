@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordshop | NSU Communications Club</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo.png">
+  <link rel="shortcut icon" href="assets/images/logo.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Event Detail Page Styles */
+    .event-detail-section {
+      padding: 80px 0;
+      background-color: var(--background-color);
+    }
+
+    .event-detail-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .event-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .event-image-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: sticky;
+      top: 120px;
+    }
+
+    .event-logo-container {
+      height: 400px;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .event-logo-container img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    }
+
+    .event-meta-card {
+      padding: 30px;
+    }
+
+    .event-meta-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-muted-color);
+    }
+
+    .meta-item i {
+      color: var(--primary-color);
+      width: 20px;
+    }
+
+    .event-content-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 40px;
+    }
+
+    .event-title {
+      font-size: 2.5rem;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .event-subtitle {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .event-description {
+      color: var(--text-muted-color);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .event-section {
+      margin-bottom: 40px;
+    }
+
+    .event-section h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlights-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlights-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      color: var(--text-muted-color);
+      line-height: 1.6;
+    }
+
+    .highlights-list li::before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .event-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .event-image-section {
+        position: static;
+      }
+
+      .event-logo-container {
+        height: 300px;
+      }
+
+      .event-content-section {
+        padding: 30px 20px;
+      }
+
+      .event-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_white.png" alt="NSUCC Logo" />
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Panel</a>
+            <div class="dropdown-content">
+              <a href="executives.html">Executive Body</a>
+              <a href="subexecutives.html">Sub-Executive Body</a>
+              <a href="clubadvisor.html">Club Advisor</a>
+            </div>
+          </li>
+          <li><a href="faculty.html">Faculty Advisor</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="active">Events</a>
+            <div class="dropdown-content">
+              <a href="events.html">All Events</a>
+              <a href="wordshop.html" class="active">Wordshop</a>
+              <a href="job-column.html">Job Column</a>
+              <a href="vocal-project.html">The Vocal Project</a>
+              <a href="communicado.html">Communicado</a>
+              <a href="amplify.html">Amplify</a>
+              <a href="final-whistle.html">The Final Whistle</a>
+              <a href="hear2speak.html">Hear2Speak</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Publications</a>
+            <div class="dropdown-content">
+              <a href="english-matters.html">English Matters</a>
+              <a href="echoes.html">Echoes</a>
+            </div>
+          </li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="recruitment.html">Join Us</a></li>
+        </ul>
+      </nav>
+      <button
+        class="mobile-nav-toggle"
+        id="mobile-nav-toggle"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title" data-aos="fade-down">
+          Wordshop
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up">
+          Transforming Creative Inspiration into Professional Ambition
+        </p>
+      </div>
+    </section>
+
+    <section class="event-detail-section">
+      <div class="event-detail-container">
+        <div class="event-detail-grid">
+          <!-- Event Image Section -->
+          <div class="event-image-section" data-aos="fade-right">
+            <div class="event-logo-container">
+              <img src="assets/images/event_logo/Wordshop.png" alt="Wordshop Event Logo">
+            </div>
+            <div class="event-meta-card">
+              <div class="event-meta-grid">
+                <div class="meta-item">
+                  <i class="fas fa-calendar"></i>
+                  <span>Annual Event - 2024 Edition</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-lightbulb"></i>
+                  <span>Interactive Workshop Format</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-star"></i>
+                  <span>6 Successful Iterations</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-users"></i>
+                  <span>Open to All NSU Students</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-clock"></i>
+                  <span>Full Day Workshop</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Content Section -->
+          <div class="event-content-section" data-aos="fade-left">
+            <h2 class="event-title">Wordshop</h2>
+            <p class="event-subtitle">Educational Workshop Series</p>
+            
+            <p class="event-description">
+              Wordshop is NSUCC's flagship annual interactive event that educates its audience on turning creative inspiration into ambition. This comprehensive workshop-based session provides valuable insights on transforming hobbies or passions into viable career paths, connecting NSU students directly with industry experts and successful professionals from various fields.
+            </p>
+
+            <div class="event-section">
+              <h3><i class="fas fa-target"></i> Workshop Objectives</h3>
+              <ul class="highlights-list">
+                <li>Transform creative inspiration into professional ambition</li>
+                <li>Connect students with industry experts and mentors</li>
+                <li>Provide practical insights for career development</li>
+                <li>Bridge the gap between passion and profession</li>
+                <li>Offer hands-on learning experiences</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-chalkboard-teacher"></i> Past Workshop Topics</h3>
+              <ul class="highlights-list">
+                <li><strong>Fiction Writing</strong> - Led by NSU EML Faculty</li>
+                <li><strong>Poetry & Creative Expression</strong> - The Versemongers</li>
+                <li><strong>Journalism & Cartooning</strong> - Colours Magazine Team</li>
+                <li><strong>Teaching & Education</strong> - Teach for Bangladesh</li>
+                <li><strong>Content Creation & Digital Media</strong> - Sadman Sadik, Enayet Chowdhury</li>
+                <li><strong>Startups & Entrepreneurship</strong> - Shikho & Pathao Co-founders</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-gift"></i> What Participants Gain</h3>
+              <ul class="highlights-list">
+                <li>Direct mentorship from industry professionals</li>
+                <li>Practical career guidance and insights</li>
+                <li>Networking opportunities with experts</li>
+                <li>Hands-on workshop experiences</li>
+                <li>Certificate of participation</li>
+                <li>Career pathway recommendations</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-calendar-alt"></i> Event Format</h3>
+              <ul class="highlights-list">
+                <li>Full-day interactive workshop sessions</li>
+                <li>Multiple industry expert presentations</li>
+                <li>Q&A sessions with professionals</li>
+                <li>Hands-on activities and exercises</li>
+                <li>Networking opportunities during breaks</li>
+                <li>Resource sharing and career guidance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img
+            src="assets/images/logo_white.png"
+            alt="NSUCC Footer Logo"
+            class="footer-logo"
+          />
+          <p>
+            NSU Communications Club<br />Room #NAC121, North South
+            University<br />nsucommunicationsclub@gmail.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/NSUCommunicationsClub"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/nsucommunicationsclub/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://linkedin.com/company/nsucc"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

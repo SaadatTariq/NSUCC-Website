@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Final Whistle | NSU Communications Club</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo.png">
+  <link rel="shortcut icon" href="assets/images/logo.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38437f2655.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Event Detail Page Styles */
+    .event-detail-section {
+      padding: 80px 0;
+      background-color: var(--background-color);
+    }
+
+    .event-detail-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .event-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .event-image-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: sticky;
+      top: 120px;
+    }
+
+    .event-logo-container {
+      height: 400px;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .event-logo-container img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    }
+
+    .event-meta-card {
+      padding: 30px;
+    }
+
+    .event-meta-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-muted-color);
+    }
+
+    .meta-item i {
+      color: var(--primary-color);
+      width: 20px;
+    }
+
+    .event-content-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 40px;
+    }
+
+    .event-title {
+      font-size: 2.5rem;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .event-subtitle {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .event-description {
+      color: var(--text-muted-color);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .event-section {
+      margin-bottom: 40px;
+    }
+
+    .event-section h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlights-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlights-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      color: var(--text-muted-color);
+      line-height: 1.6;
+    }
+
+    .highlights-list li::before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .event-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .event-image-section {
+        position: static;
+      }
+
+      .event-logo-container {
+        height: 300px;
+      }
+
+      .event-content-section {
+        padding: 30px 20px;
+      }
+
+      .event-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_white.png" alt="NSUCC Logo" />
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Panel</a>
+            <div class="dropdown-content">
+              <a href="executives.html">Executive Body</a>
+              <a href="subexecutives.html">Sub-Executive Body</a>
+              <a href="clubadvisor.html">Club Advisor</a>
+            </div>
+          </li>
+          <li><a href="faculty.html">Faculty Advisor</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="active">Events</a>
+            <div class="dropdown-content">
+              <a href="events.html">All Events</a>
+              <a href="wordshop.html">Wordshop</a>
+              <a href="job-column.html">Job Column</a>
+              <a href="vocal-project.html">The Vocal Project</a>
+              <a href="communicado.html">Communicado</a>
+              <a href="amplify.html">Amplify</a>
+              <a href="final-whistle.html" class="active">The Final Whistle</a>
+              <a href="hear2speak.html">Hear2Speak</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Publications</a>
+            <div class="dropdown-content">
+              <a href="english-matters.html">English Matters</a>
+              <a href="echoes.html">Echoes</a>
+            </div>
+          </li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="recruitment.html">Join Us</a></li>
+        </ul>
+      </nav>
+      <button
+        class="mobile-nav-toggle"
+        id="mobile-nav-toggle"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title" data-aos="fade-down">
+          The Final Whistle
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up">
+          Where Sports Meet Stories and Champions Share Their Journey
+        </p>
+      </div>
+    </section>
+
+    <section class="event-detail-section">
+      <div class="event-detail-container">
+        <div class="event-detail-grid">
+          <!-- Event Image Section -->
+          <div class="event-image-section" data-aos="fade-right">
+            <div class="event-logo-container">
+              <img src="assets/images/event_logo/The Final Whistle.png" alt="The Final Whistle Event Logo">
+            </div>
+            <div class="event-meta-card">
+              <div class="event-meta-grid">
+                <div class="meta-item">
+                  <i class="fas fa-futbol"></i>
+                  <span>Sports Entertainment</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-trophy"></i>
+                  <span>Athletic Achievement</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-gamepad"></i>
+                  <span>Interactive Gaming</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-users"></i>
+                  <span>Community Building</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-calendar-week"></i>
+                  <span>Quarterly Event</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Content Section -->
+          <div class="event-content-section" data-aos="fade-left">
+            <h2 class="event-title">The Final Whistle</h2>
+            <p class="event-subtitle">Sports & Recreation Event Series</p>
+            
+            <p class="event-description">
+              The Final Whistle represents NSUCC's unique blend of sports entertainment, community engagement, and storytelling excellence. This vibrant recreational event brings together the excitement of competitive sports with the power of narrative communication, creating a platform where athletes share their journeys, fans engage in friendly competition, and everyone celebrates the spirit of sportsmanship and community building.
+            </p>
+
+            <div class="event-section">
+              <h3><i class="fas fa-gamepad"></i> Event Activities</h3>
+              <ul class="highlights-list">
+                <li><strong>Live Sports Commentary</strong> - Real-time match analysis and entertainment</li>
+                <li><strong>Gaming Tournaments</strong> - FIFA, cricket, and esports competitions</li>
+                <li><strong>Athlete Interviews</strong> - Personal stories from NSU sports personalities</li>
+                <li><strong>Sports Trivia</strong> - Interactive quizzes and knowledge challenges</li>
+                <li><strong>Fantasy Leagues</strong> - Participant-driven prediction competitions</li>
+                <li><strong>Sports Photography</strong> - Action shots and moment capture contests</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-futbol"></i> Featured Sports</h3>
+              <ul class="highlights-list">
+                <li><strong>Football</strong> - Premier League, Champions League coverage</li>
+                <li><strong>Cricket</strong> - International matches and local tournaments</li>
+                <li><strong>Basketball</strong> - NBA highlights and university matches</li>
+                <li><strong>Tennis</strong> - Grand Slam tournaments and analysis</li>
+                <li><strong>Esports</strong> - Gaming competitions and live streams</li>
+                <li><strong>Olympic Sports</strong> - Special coverage during Olympic seasons</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-microphone"></i> Storytelling Elements</h3>
+              <ul class="highlights-list">
+                <li><strong>Athlete Narratives</strong> - Personal journeys of NSU sports stars</li>
+                <li><strong>Underdog Stories</strong> - Inspiring tales of perseverance and triumph</li>
+                <li><strong>Sports History</strong> - Memorable moments and legendary performances</li>
+                <li><strong>Fan Experiences</strong> - Community members share their sports memories</li>
+                <li><strong>Coach Insights</strong> - Strategy and leadership lessons from mentors</li>
+                <li><strong>Women in Sports</strong> - Highlighting female athletes and achievements</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-trophy"></i> Competition Highlights</h3>
+              <ul class="highlights-list">
+                <li><strong>FIFA Tournament</strong> - Annual video game championship with prizes</li>
+                <li><strong>Sports Quiz Championship</strong> - Knowledge-based competitions</li>
+                <li><strong>Fantasy League</strong> - Season-long prediction challenges</li>
+                <li><strong>Photography Contest</strong> - Best sports moment captures</li>
+                <li><strong>Prediction Pools</strong> - Match outcome betting (non-monetary)</li>
+                <li><strong>Trivia Nights</strong> - Weekly sports knowledge challenges</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-users"></i> Community Engagement</h3>
+              <ul class="highlights-list">
+                <li>Average 150+ participants per major event</li>
+                <li>Active social media community with 5,000+ followers</li>
+                <li>Regular collaboration with NSU sports clubs</li>
+                <li>Guest appearances from professional athletes</li>
+                <li>Live streaming events with interactive chat</li>
+                <li>Community voting for event themes and activities</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-medal"></i> Awards & Recognition</h3>
+              <ul class="highlights-list">
+                <li><strong>Tournament Champions</strong> - Gaming and quiz competition winners</li>
+                <li><strong>Best Storyteller</strong> - Outstanding narrative presentations</li>
+                <li><strong>Sports Spirit Award</strong> - Exceptional sportsmanship recognition</li>
+                <li><strong>Fan of the Year</strong> - Most engaged community member</li>
+                <li><strong>Photography Awards</strong> - Best sports moment captures</li>
+                <li><strong>Participation Certificates</strong> - All active community members</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-calendar"></i> Seasonal Highlights</h3>
+              <ul class="highlights-list">
+                <li><strong>World Cup Special</strong> - Extended coverage during FIFA World Cup</li>
+                <li><strong>Cricket World Cup</strong> - Comprehensive tournament analysis</li>
+                <li><strong>Olympics Watch Party</strong> - Community viewing of Olympic events</li>
+                <li><strong>EPL Season Finale</strong> - Premier League championship celebrations</li>
+                <li><strong>March Madness</strong> - NCAA Basketball tournament coverage</li>
+                <li><strong>Wimbledon Week</strong> - Tennis championship special events</li>
+              </ul>
+            </div>
+
+            <div class="event-section">
+              <h3><i class="fas fa-handshake"></i> How to Join</h3>
+              <ul class="highlights-list">
+                <li>Follow our social media accounts for event announcements</li>
+                <li>Register for tournaments and competitions online</li>
+                <li>Join our WhatsApp group for instant updates</li>
+                <li>Attend our monthly planning meetings</li>
+                <li>Volunteer for event organization and management</li>
+                <li>Share your sports stories and experiences with us</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img
+            src="assets/images/logo_white.png"
+            alt="NSUCC Footer Logo"
+            class="footer-logo"
+          />
+          <p>
+            NSU Communications Club<br />Room #NAC121, North South
+            University<br />nsucommunicationsclub@gmail.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/NSUCommunicationsClub"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/nsucommunicationsclub/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://linkedin.com/company/nsucc"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NSU Communications Club | Developed by Saadat</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
