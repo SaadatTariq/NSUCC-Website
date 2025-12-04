@@ -19,154 +19,339 @@
   <style>
     /* Event Detail Page Styles */
     .event-detail-section {
-      padding: 80px 0;
-      background-color: var(--background-color);
+      padding: 60px 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      min-height: 100vh;
     }
 
     .event-detail-container {
-      max-width: var(--container-width);
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 30px;
     }
 
-    .event-detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .event-image-section {
-      background-color: var(--surface-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
+    /* Event Banner */
+    .event-banner {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      border-radius: 20px;
       overflow: hidden;
-      position: sticky;
-      top: 120px;
+      margin-bottom: 60px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
-    .event-logo-container {
-      height: 400px;
-      background-color: #f8f9fa;
+    .event-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid var(--border-color);
     }
 
-    .event-logo-container img {
-      max-width: 85%;
-      max-height: 85%;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    .banner-content {
+      text-align: center;
+      color: white;
     }
 
-    .event-meta-card {
-      padding: 30px;
+    .banner-content h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    .event-meta-grid {
+    .banner-content p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      opacity: 0.95;
+    }
+
+    /* Information Cards */
+    .event-info {
       display: grid;
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
     }
 
-    .meta-item {
+    .info-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    .info-card h3 {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      margin-bottom: 25px;
       display: flex;
       align-items: center;
       gap: 12px;
-      color: var(--text-muted-color);
-    }
-
-    .meta-item i {
-      color: var(--primary-color);
-      width: 20px;
-    }
-
-    .event-content-section {
-      background-color: var(--surface-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
-      padding: 40px;
-    }
-
-    .event-title {
-      font-size: 2.5rem;
-      color: var(--text-color);
-      margin-bottom: 20px;
       font-weight: 600;
     }
 
-    .event-subtitle {
-      color: var(--primary-color);
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-bottom: 30px;
-    }
-
-    .event-description {
-      color: var(--text-muted-color);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 40px;
-      text-align: justify;
-    }
-
-    .event-section {
-      margin-bottom: 40px;
-    }
-
-    .event-section h3 {
-      color: var(--primary-color);
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .highlights-list {
+    .info-list {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
-    .highlights-list li {
-      position: relative;
-      padding-left: 25px;
-      margin-bottom: 12px;
+    .info-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-weight: 500;
+      color: var(--text-color);
+    }
+
+    .info-value {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    /* Features Section */
+    .features-section {
+      background: white;
+      border-radius: 20px;
+      padding: 60px;
+      margin-bottom: 80px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .features-section h3 {
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-item {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .feature-item i {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .feature-item:hover i {
+      color: white;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .feature-item:hover .feature-title {
+      color: white;
+    }
+
+    .feature-desc {
       color: var(--text-muted-color);
       line-height: 1.6;
     }
 
-    .highlights-list li::before {
-      content: "•";
+    .feature-item:hover .feature-desc {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Statistics Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+      border-radius: 20px;
+      padding: 60px;
+      color: white;
+      margin-bottom: 80px;
+      text-align: center;
+    }
+
+    .stats-section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      font-weight: 600;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: white;
+      border-radius: 20px;
+      padding: 60px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .cta-section h3 {
       color: var(--primary-color);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .cta-section p {
+      color: var(--text-muted-color);
       font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+      color: white;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--text-color);
+      text-align: center;
+      margin-bottom: 60px;
+      font-weight: 600;
     }
 
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
-      .event-detail-grid {
+      .event-detail-container {
+        padding: 0 20px;
+      }
+
+      .event-banner {
+        height: 350px;
+        margin-bottom: 40px;
+      }
+
+      .banner-content h2 {
+        font-size: 2.5rem;
+      }
+
+      .banner-content p {
+        font-size: 1.1rem;
+      }
+
+      .event-info {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
+        margin-bottom: 50px;
       }
 
-      .event-image-section {
-        position: static;
+      .info-card {
+        padding: 30px 25px;
       }
 
-      .event-logo-container {
-        height: 300px;
+      .features-section {
+        padding: 40px 25px;
+        margin-bottom: 50px;
       }
 
-      .event-content-section {
-        padding: 30px 20px;
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
 
-      .event-title {
-        font-size: 2rem;
+      .stats-section {
+        padding: 40px 25px;
+        margin-bottom: 50px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .cta-section {
+        padding: 40px 25px;
       }
     }
   </style>
@@ -238,7 +423,149 @@
 
     <section class="event-detail-section">
       <div class="event-detail-container">
-        <div class="event-detail-grid">
+        <!-- Event Banner -->
+        <div class="event-banner" data-aos="fade-up">
+          <img src="assets/images/event_logo/Amplify.png" alt="Amplify Event Banner">
+          <div class="overlay">
+            <div class="banner-content">
+              <h2>🔊 Amplify</h2>
+              <p>Media and Digital Communication Summit</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Information Cards -->
+        <div class="event-info" data-aos="fade-up">
+          <div class="info-card">
+            <h3><i class="fas fa-info-circle"></i> Summit Details</h3>
+            <ul class="info-list">
+              <li>
+                <span class="info-label">Event Type</span>
+                <span class="info-value">Media Summit</span>
+              </li>
+              <li>
+                <span class="info-label">Format</span>
+                <span class="info-value">Conferences & Workshops</span>
+              </li>
+              <li>
+                <span class="info-label">Duration</span>
+                <span class="info-value">2-Day Event</span>
+              </li>
+              <li>
+                <span class="info-label">Participants</span>
+                <span class="info-value">200+ Attendees</span>
+              </li>
+              <li>
+                <span class="info-label">Focus</span>
+                <span class="info-value">Digital Media Trends</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3><i class="fas fa-star"></i> Key Features</h3>
+            <ul class="info-list">
+              <li>
+                <span class="info-label">Industry Speakers</span>
+                <span class="info-value">Media Professionals</span>
+              </li>
+              <li>
+                <span class="info-label">Workshop Topics</span>
+                <span class="info-value">Digital Innovation</span>
+              </li>
+              <li>
+                <span class="info-label">Networking</span>
+                <span class="info-value">Professional Connections</span>
+              </li>
+              <li>
+                <span class="info-label">Learning Format</span>
+                <span class="info-value">Interactive Sessions</span>
+              </li>
+              <li>
+                <span class="info-label">Certification</span>
+                <span class="info-value">Attendance Certificate</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section" data-aos="fade-up">
+          <h3><i class="fas fa-broadcast-tower"></i> Summit Focus Areas</h3>
+          
+          <div class="features-grid">
+            <div class="feature-item">
+              <i class="fas fa-mobile-alt"></i>
+              <div class="feature-title">Social Media Strategy</div>
+              <div class="feature-desc">Latest trends in social media marketing and content creation</div>
+            </div>
+
+            <div class="feature-item">
+              <i class="fas fa-video"></i>
+              <div class="feature-title">Video Production</div>
+              <div class="feature-desc">Digital video content creation and storytelling techniques</div>
+            </div>
+
+            <div class="feature-item">
+              <i class="fas fa-podcast"></i>
+              <div class="feature-title">Audio Media</div>
+              <div class="feature-desc">Podcasting, audio production, and voice content strategies</div>
+            </div>
+
+            <div class="feature-item">
+              <i class="fas fa-chart-line"></i>
+              <div class="feature-title">Digital Analytics</div>
+              <div class="feature-desc">Data-driven content strategy and performance measurement</div>
+            </div>
+
+            <div class="feature-item">
+              <i class="fas fa-palette"></i>
+              <div class="feature-title">Brand Communication</div>
+              <div class="feature-desc">Visual branding and corporate communication strategies</div>
+            </div>
+
+            <div class="feature-item">
+              <i class="fas fa-rocket"></i>
+              <div class="feature-title">Innovation Trends</div>
+              <div class="feature-desc">Emerging technologies and future of digital communication</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats-section" data-aos="fade-up">
+          <h3>📊 Summit Impact</h3>
+          
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">200+</span>
+              <span class="stat-label">Attendees</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Industry Speakers</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">6</span>
+              <span class="stat-label">Workshop Sessions</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Days of Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section" data-aos="fade-up">
+          <h3>🚀 Amplify Your Media Skills</h3>
+          <p>
+            Join Amplify and discover the latest trends in digital media and communication. 
+            Learn from industry experts, network with professionals, and gain insights into the future of media.
+          </p>
+          <a href="events.html" class="cta-button">Register for Summit</a>
+        </div>
+      </div>
           <!-- Event Image Section -->
           <div class="event-image-section" data-aos="fade-right">
             <div class="event-logo-container">
